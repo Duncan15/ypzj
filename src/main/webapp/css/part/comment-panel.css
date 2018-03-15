@@ -1,0 +1,16 @@
+.container .article-panel .content-line {
+  line-height: 1.5;
+}
+.container .comment {
+  border-top: 2px solid #bbb;
+  padding-top: 20px;
+}
+.container .comment .button-line {
+  visibility: hidden;
+}
+.container .comment:hover .button-line {
+  visibility: visible;
+}
+.container .content-input {
+  height: 100px;
+}

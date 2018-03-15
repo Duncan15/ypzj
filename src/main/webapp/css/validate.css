@@ -1,0 +1,11 @@
+.validate-container {
+  max-width: 450px;
+  padding-bottom: 50px;
+}
+.validate-container .header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.validate-group {
+  margin-bottom: 40px;
+}

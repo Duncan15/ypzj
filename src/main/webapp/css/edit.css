@@ -1,0 +1,17 @@
+
+.title-line .title-input,
+.content-line .content-input,
+.label-line .label-input {
+  padding: 3px 5px;
+}
+.content-line .content-input {
+  height: 500px;
+}
+.label-input {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #999;
+}
+.tag {
+  padding: 2px 5px;
+}

@@ -1,0 +1,110 @@
+.fl {
+  float: left;
+  margin-right: 5px;
+}
+.fr {
+  float: right;
+  margin-left: 5px;
+}
+.tac {
+  text-align: center;
+}
+.btn-center {
+  display: table;
+  width: auto;
+  margin: 5px auto;
+}
+.fssm {
+  font-size: 150%;
+}
+.fsb {
+  font-size: 18px;
+}
+.fsm {
+  font-size: 15px;
+}
+.fss {
+  font-size: 12px;
+}
+.fcb {
+  color: #333!important;
+}
+.fcn {
+  color: #666!important;
+}
+.fcl {
+  color: #999!important;
+}
+.fcw {
+  color: #fff!important;
+}
+.fwb {
+  font-weight: bold;
+}
+.fwn {
+  font-weight: normal;
+}
+.fwl {
+  font-weight: lighter;
+}
+.bcw {
+  background: rgb(255, 255, 255);
+}
+.bcy {
+	background-color: #ffec33;
+}
+body {
+  background: rgb(255, 255, 255);
+}
+a {
+  color: #1b8ff3;
+}
+a:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+.hoverable:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+}
+li.active-local {
+	font-weight:bold;
+	background: rgba(0,0,0,0.04);
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+.container .line {
+  margin-bottom: 20px;
+}
+.side-bar-card,
+.float-card {
+  border-radius: 5px;
+  -webkit-box-shadow:0 0 3px 2px rgba(0,0,0,.2);
+	box-shadow:0 0 3px 2px rgba(0,0,0,.2);
+  margin-bottom: 20px;
+}
+.item {
+  padding: 10px 10px;
+}
+.block {
+  display: block;
+}
+.input-block {
+  width: 100%;
+}
+.navbar .navbar-brand {
+  background-image: url(../img/logo.png);
+  width: 150px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.footer {
+  margin-top: 20px;
+  border-top: 2px solid #ccc;
+  padding: 50px 0;
+  text-align: center;
+}
