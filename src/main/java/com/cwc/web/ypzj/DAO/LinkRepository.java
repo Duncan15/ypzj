@@ -1,8 +1,10 @@
 package com.cwc.web.ypzj.DAO;
 
-import com.cwc.web.ypzj.db.DBUtil;
+import com.cwc.web.ypzj.db.DBManager;
 import com.cwc.web.ypzj.db.mapper.LinkMapper;
 import com.cwc.web.ypzj.servletObj.Link;
+
+import java.sql.SQLException;
 
 public class LinkRepository {
 	private final static String TABLE_NAME="link_table";
@@ -23,10 +25,17 @@ public class LinkRepository {
 				+"values(\""+intro+"\",\""+link+"\");";
 		String searchSql="select * from "+TABLE_NAME+" where "+Arg.intro.toString()+"=\""+intro+"\" and "
 				+Arg.link.toString()+"=\""+link+"\";";
-		int ans=DBUtil.insert(sql, null);
-		if(ans>0) {
-			Link linkObj=(Link) DBUtil.queryObject(searchSql, null, new LinkMapper());
-			return linkObj;
+		DBManager dbManager;
+		int ans=0;
+		try{
+			dbManager=new DBManager();
+			ans=dbManager.insert(sql,null);
+			if(ans>0) {
+				Link linkObj=(Link) dbManager.queryObject(searchSql, null, new LinkMapper());
+				return linkObj;
+			}
+		}catch (SQLException e){
+			e.printStackTrace();
 		}
 		return null;
 	}

@@ -1,9 +1,10 @@
 package com.cwc.web.ypzj.DAO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cwc.web.ypzj.db.DBUtil;
+import com.cwc.web.ypzj.db.DBManager;
 import com.cwc.web.ypzj.db.mapper.LabelMapper;
 import com.cwc.web.ypzj.servletObj.Label;
 
@@ -12,7 +13,15 @@ public class LabelRepository {
 	{
 		ArrayList<Label> ans=new ArrayList<>();
 		String sql="select * from top_label_table";
-		List<Object> t=DBUtil.findAll(sql, new LabelMapper());
+		DBManager dbManager;
+		List<Object> t=null;
+		try{
+			dbManager=new DBManager();
+			t=dbManager.findAll(sql, null,new LabelMapper());
+			System.err.println(t);
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
 		if(t!=null)
 		{
 			for(Object each:t)

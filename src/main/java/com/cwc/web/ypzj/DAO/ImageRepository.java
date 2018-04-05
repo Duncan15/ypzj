@@ -1,8 +1,10 @@
 package com.cwc.web.ypzj.DAO;
 
-import com.cwc.web.ypzj.db.DBUtil;
+import com.cwc.web.ypzj.db.DBManager;
 import com.cwc.web.ypzj.db.mapper.ImageMapper;
 import com.cwc.web.ypzj.servletObj.Image;
+
+import java.sql.SQLException;
 
 public class ImageRepository {
 	private static final String TABLE_NAME="image_table";
@@ -18,12 +20,26 @@ public class ImageRepository {
 	 */
 	public static Image findImageNameByMD5(byte[] MD5) {
 		String sql="select * from "+TABLE_NAME+" where md5=?;";
-		return (Image) DBUtil.queryObject(sql, MD5, new ImageMapper());
+		DBManager dbManager;
+		try{
+			dbManager=new DBManager();
+			return (Image) dbManager.queryObject(sql,MD5,new ImageMapper());
+		}catch (SQLException e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 	public static Image createNewImage(String imageName,byte[] MD5) {
 		String sql="insert into "+TABLE_NAME+"("+Arg.image_name.toString()+","+Arg.md5.toString()+")"
 				+"values(\""+imageName+"\",?);";
-		int ans=DBUtil.insert(sql, MD5);
+		DBManager dbManager;
+		int ans=0;
+		try{
+			dbManager=new DBManager();
+			ans=dbManager.insert(sql,MD5);
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
 		if(ans>0) {
 			return new Image(imageName, null, MD5);
 		}
