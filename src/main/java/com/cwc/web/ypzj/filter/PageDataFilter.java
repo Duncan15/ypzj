@@ -13,8 +13,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.cwc.web.ypzj.DAO.LabelRepository;
-import com.cwc.web.ypzj.servletObj.Label;
+import com.cwc.web.ypzj.db.DAO.LabelRepository;
+import com.cwc.web.ypzj.db.dbObj.Label;
 
 /**
  * Servlet Filter implementation class PageDataFilter

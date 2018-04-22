@@ -20,19 +20,23 @@
       this.inversePattern[this.parsePattern[each]]=each;
       this.inverseReg+=this.parsePattern[each]+'|';
     }
-
     this.reg='['+this.reg+']';
     this.inverseReg=this.inverseReg.substr(0,this.inverseReg.length-1);
+    this.linkReg=/\$链接(.+?)\*(\d+?)@(.+?)\$/g
+    this.imgReg=/\$图片(\d+?\.\w+?)\$/g
   }
-
+  //will not change the presentation of link and img tag
   TextParser.prototype.parse=function(){
     var content=this.editor.val();
     var that=this;
     content=content.replace(new RegExp(this.reg,'g'),function(str){
       return that.parsePattern[str];
     });
+    content=content.replace(this.linkReg,'<a href="$1" id="$2">$3</a>');
+    content=content.replace(this.imgReg,'<img src="img/$1">');
     return content;
   };
+
   TextParser.prototype.inverseParse=function(){
     var content=this.editor.val();
     var that=this;

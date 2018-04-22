@@ -1,6 +1,10 @@
 .fssb {
   font-size: 200%;
 }
+.main-panel .line-list .line-content .card img {
+  max-height: 120px!important;
+}
+
 .comment-panel {
   margin-top: 40px;
 }

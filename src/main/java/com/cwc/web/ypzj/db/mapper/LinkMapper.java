@@ -3,7 +3,7 @@ package com.cwc.web.ypzj.db.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.cwc.web.ypzj.servletObj.Link;
+import com.cwc.web.ypzj.db.dbObj.Link;
 
 public class LinkMapper extends RowMapper {
 

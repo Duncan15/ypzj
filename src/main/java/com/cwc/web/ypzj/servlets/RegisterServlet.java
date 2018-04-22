@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cwc.web.ypzj.DAO.UserRepository;
-import com.cwc.web.ypzj.servletObj.User;
+import com.cwc.web.ypzj.db.DAO.UserRepository;
+import com.cwc.web.ypzj.db.dbObj.User;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -42,18 +42,14 @@ public class RegisterServlet extends HttpServlet {
 		String userName=request.getParameter("user-name");
 		if(UserRepository.getUserByAccount(account)!=null)
 		{
-			RequestDispatcher requestDispatcher=request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
 			request.setAttribute("reason", "账号已存在");
-			requestDispatcher.forward(request, response);
-			return;
+			throw new ServletException();
 		}
 		User newUser=UserRepository.createNewAccount(account, userName, password);
 		if(newUser==null)
 		{
-			RequestDispatcher requestDispatcher=request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
 			request.setAttribute("reason", "服务器内部错误，注册失败");
-			requestDispatcher.forward(request, response);
-			return;
+			throw new ServletException();
 		}
 		response.sendRedirect("login");
 	}

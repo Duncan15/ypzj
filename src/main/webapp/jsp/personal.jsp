@@ -1,5 +1,6 @@
+<%@ page import="com.cwc.web.ypzj.db.dbObj.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +11,18 @@
   <title>一偏之荐</title>
 </head>
 <body>
+  <!--注意：id不再本页使用，因此为解析成String-->
+  <%String authorId=null;
+    authorId=request.getParameter("id");
+    if(authorId==null){
+      User usr=(User) session.getAttribute("currentUser");
+      if (usr==null){
+          request.setAttribute("reason","该用户不存在");
+      }else {
+          authorId=usr.getId().toString();
+      }
+    }
+  %>
   <jsp:include page="/WEB-INF/jsp/part/navbar.jsp"/>
   <div class="main-panel container">
     <div class="col-xs-9">
@@ -23,12 +36,15 @@
       	  <jsp:param name="labelName" value="最新文章"/>
           <jsp:param name="sortAttr" value="new" />
           <jsp:param name="articleNum" value="4" />
+          <jsp:param name="authorId" value="<%=authorId%>" />
+
         </jsp:include>
         <jsp:include page="/WEB-INF/jsp/part/article-line.jsp">
         	  <jsp:param name="public" value="private" />
       	  <jsp:param name="labelName" value="最热文章"/>
           <jsp:param name="sortAttr" value="support" />
           <jsp:param name="articleNum" value="4" />
+          <jsp:param name="authorId" value="<%=authorId%>" />
         </jsp:include>
       </div>
       <div class="comment-panel">
@@ -37,9 +53,13 @@
 
     </div>
     <div class="col-xs-3">
-      <jsp:include page="/WEB-INF/jsp/part/author-message-board.jsp" />
+      <jsp:include page="/WEB-INF/jsp/part/author-message-board.jsp" >
+        <jsp:param name="authorId" value="<%=authorId%>" />
+      </jsp:include>
       <jsp:include page="/WEB-INF/jsp/part/article-board.jsp">
       	<jsp:param value="作者全部文章" name="title"/>
+        <jsp:param name="mode" value="total" />
+        <jsp:param name="authorId" value="<%=authorId%>" />
       </jsp:include>
       <jsp:include page="/WEB-INF/jsp/part/user-list-board.jsp">
       	<jsp:param value="cwc" name="userName"/>

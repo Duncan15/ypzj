@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.cwc.web.ypzj.DAO.ArticleRepository;
-import com.cwc.web.ypzj.servletObj.ArticleInfo;
+import com.cwc.web.ypzj.db.DAO.ArticleRepository;
+import com.cwc.web.ypzj.db.dbObj.ArticleInfo;
+import com.cwc.web.ypzj.db.dbObj.User;
 
 /**
  * Servlet implementation class ArticleServlet
@@ -34,38 +36,69 @@ public class ArticleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String requestUrl=request.getRequestURL().toString();
 		long articleId=0;
 		try
 		{
-			articleId=Long.parseLong(requestUrl.substring(requestUrl.indexOf("article/")+8));
+			articleId=Long.parseLong(request.getParameter("id"));
 		}
 		catch (NumberFormatException e) 
 		{
 			// TODO: handle exception
 			request.setAttribute("reason", "文章ID格式错误");
-			try {
-				throw new Exception();
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			throw new ServletException();
 		}
 		ArticleInfo targetArticleInfo=ArticleRepository.getArticleInfoById(articleId);
 		if(targetArticleInfo==null)
 		{
 			request.setAttribute("reason", "ID所指向的文章不存在");
-			try {
-				throw new Exception();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			throw new ServletException();
 		}
-		request.setAttribute("labelId", targetArticleInfo.getTopLabelId());//for navbar.jsp
 		request.setAttribute("ArticleInfo",targetArticleInfo);
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/article.jsp");
 		dispatcher.forward(request, response);
 	}
 
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String title=req.getParameter("title");
+		String content=req.getParameter("content");
+		String labelId=req.getParameter("labelId");
+		if(title==null||content==null||labelId==null){
+			req.setAttribute("reason","post格式错误");
+			throw new ServletException();
+		}
+		if("".equals(title)||"".equals(content)){
+			req.setAttribute("reason","标题或内容不能为空");
+			throw new ServletException();
+		}
+
+		User usr= (User) req.getSession().getAttribute("currentUser");
+		if(usr==null){
+			req.setAttribute("reason","无账户信息");
+			throw new ServletException();
+		}
+		Long authorId=usr.getId();
+		Long topLabelId=0l;
+		if(!"".equals(labelId)){
+			try{
+				topLabelId=Long.parseLong(labelId);
+			}catch (NumberFormatException e){
+				e.printStackTrace();
+				req.setAttribute("reason","labelId格式错误");
+				throw new ServletException();
+			}
+		}
+		HttpSession session=req.getSession();
+		String avatarId=null;
+		if(session.getAttribute("avatar_id")!=null){
+			avatarId=(String) session.getAttribute("avatar_id");
+			session.removeAttribute("avatar_id");
+		}
+		Long articleId=ArticleRepository.addArticle(title,topLabelId,authorId,content,avatarId);
+		if(articleId==null){
+			req.setAttribute("reason","新建文章错误");
+			throw new ServletException();
+		}
+		resp.getWriter().println(articleId);
+	}
 }

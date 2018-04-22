@@ -3,7 +3,7 @@ package com.cwc.web.ypzj.db.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.cwc.web.ypzj.servletObj.ArticleContent;
+import com.cwc.web.ypzj.db.dbObj.ArticleContent;
 
 public class ArticleContentMapper extends RowMapper {
 

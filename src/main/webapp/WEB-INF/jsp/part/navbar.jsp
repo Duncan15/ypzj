@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.cwc.web.ypzj.servletObj.Label" %>
-<%@ page import="com.cwc.web.ypzj.servletObj.User" %>
-<div class="navbar navbar-default bcy">
-  <div class="container">
+<%@ page import="com.cwc.web.ypzj.db.dbObj.Label" %>
+<%@ page import="com.cwc.web.ypzj.db.dbObj.User" %>
+<div class="navbar navbar-default bcy navbar-fixed-top">
+  <div class="container ">
     <div class="navbar-header">
       <a href="index.html" class="navbar-brand"></a>
     </div>
@@ -33,6 +33,7 @@
        if(userObj!=null)
        {
          currentUser=userObj.getUserName();
+         userId=userObj.getId();
        }
     %>
     <ul class="nav navbar-nav navbar-right">
@@ -47,7 +48,7 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#"><%=currentUser %><b class="caret"></b></a>
       	<ul class="dropdown-menu">
-      		<li><a href="user/personal">个人主页</a></li>
+      		<li><a href="user/personal?id=<%=userId%>">个人主页</a></li>
       		<li><a href="user/edit">新建文章</a></li>
       		<li><a>账号管理</a></li>
       		<li><a href="logout">退出</a></li>

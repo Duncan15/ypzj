@@ -7,12 +7,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd045a4d-38da-41e1-b0f1-8cb402d94b95" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ArticleRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ArticleRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ImageRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ImageRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LabelRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LabelRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LinkRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LinkRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/UserRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DBUtil.java" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/ImgAPI.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DAO/ArticleRepository.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DAO/UserRepository.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ArticleRepository.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ImageRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DAO/ImageRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LabelRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DAO/LabelRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LinkRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DAO/LinkRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/UserRepository.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/ConnectionPool.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/common/db/ConnectionPool.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DBManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/common/db/DBManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ArticleContentMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ArticleContentMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ArticleInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ArticleInfoMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ImageMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ImageMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/LabelMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/LabelMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/LinkMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/LinkMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/UserMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageDataFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageDataFilter.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageStateFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageStateFilter.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/jsonObj/ImgUploadResponseUnit.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/jsonObj/ImgUploadResponseUnit.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/jsonObj/ImgUploadResponser.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/jsonObj/ImgUploadResponser.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/jsonObj/LinkResponser.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/jsonObj/LinkResponser.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/ArticleContent.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/dbObj/ArticleContent.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/ArticleInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/dbObj/ArticleInfo.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/Image.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/dbObj/Image.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/Label.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/dbObj/Label.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/Link.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/dbObj/Link.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/dbObj/User.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/ArticleServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/ArticleServlet.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/ImgServlet.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/LinkServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/LinkAPI.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/LogOutServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/LogOutServlet.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/LoginServlet.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/RegisterServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/RegisterServlet.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/util/MD5Util.java" afterPath="$PROJECT_DIR$/src/main/java/com/cwc/web/common/util/MD5Util.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/article.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/article.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-board.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-board.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-line.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-line.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/author-message-board.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/author-message-board.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/footer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/footer.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/navbar.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/navbar.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/define.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/define.css" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/personal.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/personal.css" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/dealing-article.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/dealing-article.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/getStatus.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/text-parser.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/text-parser.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/uploader.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/uploader.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/edit.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/personal.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/personal.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,57 +70,130 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DBManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DBManager.java">
+      <file leaf-file-name="ImgAPI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/ImgAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1916">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="241">
+              <caret line="158" column="64" lean-forward="false" selection-start-line="158" selection-start-column="64" selection-end-line="158" selection-end-column="64" />
+              <folding>
+                <element signature="e#2769#2770#0" expanded="true" />
+                <element signature="e#2791#2792#0" expanded="true" />
+                <element signature="method#dealMD5AndSaving#0;class#ImgAPI#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinkAPI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/LinkAPI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="47" column="44" lean-forward="false" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PathParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/util/PathParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1143">
+              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArticleServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/ArticleServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="83" column="51" lean-forward="true" selection-start-line="83" selection-start-column="51" selection-end-line="83" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ConnectionPool.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/ConnectionPool.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/db/ConnectionPool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="10">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageDataFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageDataFilter.java">
+      <file leaf-file-name="DBManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/db/DBManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LabelRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LabelRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LabelMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/LabelMapper.java">
+      <file leaf-file-name="ImgUploadResponser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/jsonObj/ImgUploadResponser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Errno.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/api/format/Errno.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RespStruct.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/api/format/RespStruct.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+              <folding>
+                <element signature="e#324#325#0" expanded="true" />
+                <element signature="e#351#352#0" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#413#414#0" expanded="true" />
+                <element signature="e#446#447#0" expanded="true" />
+                <element signature="e#474#475#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="jsf" />
+        <option value="XSLT Stylesheet" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,13 +206,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ArticleRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DBUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/DBManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DBManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/ConnectionPool.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageDataFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/RegisterServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LabelRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LinkRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/Image.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ImageRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ImageMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/main.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/personal.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/ArticleInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/LogOutServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ArticleInfoMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/ArticleServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/author-message-board.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/total.jsp.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-line.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/total.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DBManager.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/pagination.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-board.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/article.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/total.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ArticleRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/navbar.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/define.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/admin.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/ConnectionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/personal.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/head.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/admin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/pic-line.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servletObj/Carousel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/CarouselMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/CarouselRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/api/format/Errno.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/api/format/RespStruct.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/api/resp/RespWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/ImgServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/common/db/ConnectionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/common/db/DBManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/ImgServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/LinkServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/common/util/PathParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/LinkAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/ImgAPI.java" />
       </list>
     </option>
   </component>
@@ -121,10 +284,10 @@
     <handled-path value="$PROJECT_DIR$/src/main/webapp/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="75" />
+    <option name="x" value="80" />
     <option name="y" value="23" />
-    <option name="width" value="1365" />
-    <option name="height" value="837" />
+    <option name="width" value="1360" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -176,6 +339,34 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="YIPIANZHIJIAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YPZJ" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="YIPIANZHIJIAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YPZJ" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="YIPIANZHIJIAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YPZJ" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="ypzj" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -184,8 +375,9 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="ypzj" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="YIPIANZHIJIAN" type="b2602c69:ProjectViewProjectNode" />
@@ -193,8 +385,9 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="ypzj" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
+              <item name="servlets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="YIPIANZHIJIAN" type="b2602c69:ProjectViewProjectNode" />
@@ -203,13 +396,21 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="YIPIANZHIJIAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YPZJ" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,6 +422,12 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -403,47 +610,51 @@
       <option name="presentableId" value="Default" />
       <updated>1522773396177</updated>
       <workItem from="1522773402640" duration="987000" />
-      <workItem from="1522774529227" duration="2123000" />
+      <workItem from="1522774529227" duration="21276000" />
+      <workItem from="1523176379763" duration="156000" />
+      <workItem from="1523250915682" duration="20059000" />
+      <workItem from="1523371367024" duration="3480000" />
+      <workItem from="1523462588020" duration="70332000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3110000" />
+    <option name="totallyTimeSpent" value="116290000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="23" width="1365" height="837" extended-state="0" />
+    <frame x="80" y="23" width="1360" height="877" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3341615" sideWeight="0.5029412" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24981685" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3801242" sideWeight="0.4970588" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27867648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,62 +665,640 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageDataFilter.java</url>
-          <line>49</line>
-          <properties />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LabelRepository.java</url>
-          <line>19</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DBUtil.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/ArticleRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/ConnectionPool.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar!/com/mysql/cj/jdbc/PreparedStatement.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state relative-caret-position="227">
+          <caret line="2085" column="0" lean-forward="false" selection-start-line="2085" selection-start-column="0" selection-end-line="2085" selection-end-column="0" />
+          <folding>
+            <marker date="1521170976000" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1521170976000" expanded="false" signature="141:3040" ph="..." />
+            <marker date="1521170976000" expanded="true" signature="4658:4969" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="5079:5139" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="5261:5326" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="5493:5575" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="5663:6915" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="7015:7894" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="8039:8744" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="8793:9521" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="9580:9917" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="9965:10006" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="10085:13267" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="13318:13655" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="13711:14304" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="14409:15390" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="15485:16268" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="16341:16673" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="16724:20087" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="20153:21735" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="21817:21884" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="21960:22029" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="22127:29904" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="29992:30650" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="30733:37411" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="37472:37523" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="37600:38336" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="38438:40665" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="40747:45756" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="45804:45912" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="46143:49403" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="49461:51600" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="51653:51894" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="52020:52595" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="52834:55503" ph="{...}" />
+            <marker date="1521170976000" expanded="false" signature="55562:55573" ph=" { " />
+            <marker date="1521170976000" expanded="false" signature="55618:55624" ph=" }" />
+            <marker date="1521170976000" expanded="true" signature="55691:56062" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="56255:58782" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="58913:59148" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="59268:59870" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="59950:60248" ph="{...}" />
+            <marker date="1521170976000" expanded="false" signature="60288:60299" ph=" { " />
+            <marker date="1521170976000" expanded="false" signature="60330:60336" ph=" }" />
+            <marker date="1521170976000" expanded="true" signature="60397:60823" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="60906:62020" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="62132:63670" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="63762:68128" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="68193:72138" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="72198:72601" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="72675:73489" ph="{...}" />
+            <marker date="1521170976000" expanded="false" signature="73537:73548" ph=" { " />
+            <marker date="1521170976000" expanded="false" signature="73570:73576" ph=" }" />
+            <marker date="1521170976000" expanded="true" signature="73629:73983" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="74087:74424" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="74489:75602" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="75666:75961" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="76040:76302" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="76393:76804" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="76904:78149" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="78212:78445" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="78545:78905" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="78991:79497" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="79598:81172" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="81276:81517" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="81578:82260" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="82340:82566" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="82640:82976" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="83053:83429" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="83560:87473" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="87573:87915" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="88023:88090" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="88194:90701" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="90762:91679" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="91762:92101" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="92198:92521" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="92626:92977" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="93055:93897" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="93973:94339" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="94411:94743" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="94830:95542" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="95637:96690" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="96777:97224" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="97298:97633" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="97719:97892" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="97971:98472" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="98559:98629" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="98720:99039" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="99174:102909" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="102998:106522" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="106630:106945" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="107057:107678" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="107816:115284" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="115403:116134" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="116254:116806" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="116957:117720" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="117779:118012" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="118120:118973" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="119049:119386" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="119464:125175" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="125249:126110" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="126198:126521" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="126595:126934" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="127030:127514" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="127612:127940" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="128024:128368" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="128474:129386" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="129392:129410" ph="/**...*/" />
+            <marker date="1521170976000" expanded="true" signature="129527:129991" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="130065:130536" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="130686:133809" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="133939:136799" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="136830:137140" ph="{...}" />
+            <marker date="1521170976000" expanded="false" signature="137185:137196" ph=" { " />
+            <marker date="1521170976000" expanded="false" signature="137205:137211" ph=" }" />
+            <marker date="1521170976000" expanded="true" signature="137299:137520" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="137621:137954" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="138043:138265" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="138367:138598" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="138689:138917" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="139009:139239" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="139344:139583" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="139664:139890" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="139984:140218" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="140310:140541" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="140620:143837" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="143943:145617" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="145699:145926" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="146021:146392" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="146466:146795" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="146832:147338" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="147392:147805" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="147950:148945" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="149021:149254" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="149334:149732" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="149818:150233" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="150292:150517" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="150592:158410" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="150746:153186" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="153258:153332" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="153416:153496" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="153578:153657" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="153742:153823" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="153893:153966" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="154042:154118" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="154188:154261" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="154334:154408" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="154491:154575" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="154645:154718" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="154797:154870" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="154944:155019" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="155091:155165" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="155233:155305" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="155387:155466" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="155536:155609" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="155693:155777" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="155850:155934" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="156008:157317" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="157385:157457" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="157529:157603" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="157677:157752" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="157822:157895" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="157975:158053" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="158121:158193" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="158265:158404" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="158493:159976" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="158595:158606" ph="{}" />
+            <marker date="1521170976000" expanded="true" signature="158676:158766" ph="{...}" />
+            <marker date="1521170976000" expanded="false" signature="158825:158840" ph=" { " />
+            <marker date="1521170976000" expanded="false" signature="158852:158862" ph=" }" />
+            <marker date="1521170976000" expanded="true" signature="158922:159009" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="159090:159430" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="159478:159648" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="159683:159970" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="160005:160251" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="160293:177166" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="160986:161048" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="161194:169352" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="169498:170466" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="170564:172467" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="172553:173024" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="173106:173257" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="173364:174017" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="174112:176108" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="176311:177160" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="177187:177328" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="177257:177322" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="177359:178473" ph="{...}" />
+            <marker date="1521170976000" expanded="true" signature="177724:178467" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6-sources.jar!/com/mysql/cj/jdbc/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="3245" column="0" lean-forward="false" selection-start-line="3245" selection-start-column="0" selection-end-line="3245" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageDataFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/filter/PageStateFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="155">
+          <caret line="48" column="52" lean-forward="true" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/LabelMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/pagination.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="153">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/DAO/LabelRepository.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/Long.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="392" column="25" lean-forward="false" selection-start-line="392" selection-start-column="25" selection-end-line="392" selection-end-column="25" />
+          <folding>
+            <element signature="e#38378#38379#0" expanded="false" />
+            <element signature="e#38416#38417#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/define.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="57" column="15" lean-forward="false" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/article.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="75" column="39" lean-forward="false" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-board.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DBManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/dealing-article.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1916">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="-425">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/sql/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1544">
+          <caret line="57" column="17" lean-forward="false" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/sql/DriverManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="330" column="62" lean-forward="true" selection-start-line="330" selection-start-column="62" selection-end-line="330" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="1124" column="17" lean-forward="false" selection-start-line="1124" selection-start-column="17" selection-end-line="1124" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/util/concurrent/ArrayBlockingQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="409" column="13" lean-forward="false" selection-start-line="409" selection-start-column="13" selection-end-line="409" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/personal.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/navbar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="54" lean-forward="true" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/head.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/total.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="44" column="53" lean-forward="false" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/article-line.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/part/pic-line.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/ArticleInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="524" column="11" lean-forward="false" selection-start-line="524" selection-start-column="11" selection-end-line="524" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/dbObj/Carousel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/mapper/CarouselMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#360#361#0" expanded="false" />
+            <element signature="e#396#397#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DAO/ArticleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="166" column="5" lean-forward="true" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
+          <folding>
+            <element signature="method#getArticleInfoById#0;class#ArticleRepository#0" expanded="false" />
+            <element signature="method#getArticleContentByArticleId#0;class#ArticleRepository#0" expanded="false" />
+            <element signature="method#findByLabelIdOrderByCreatedTime#0;class#ArticleRepository#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/DAO/CarouselRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/resp/RespWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/db/dbObj/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/api/format/RespStruct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding>
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1-sources.jar!/javax/servlet/http/HttpServletResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5354">
+          <caret line="391" column="21" lean-forward="false" selection-start-line="391" selection-start-column="21" selection-end-line="391" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/api/resp/RespWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/api/format/Errno.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/jsonObj/ImgUploadResponser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1-sources.jar!/javax/servlet/GenericServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="261" column="16" lean-forward="false" selection-start-line="261" selection-start-column="16" selection-end-line="261" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.3/commons-fileupload-1.3.3.jar!/org/apache/commons/fileupload/FileUploadBase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.3/commons-fileupload-1.3.3.jar!/org/apache/commons/fileupload/servlet/ServletFileUpload.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/util/MD5Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/db/ConnectionPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/db/DBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1143">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1-sources.jar!/javax/servlet/ServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1651">
+          <caret line="614" column="31" lean-forward="true" selection-start-line="614" selection-start-column="31" selection-end-line="614" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="1957" column="18" lean-forward="false" selection-start-line="1957" selection-start-column="18" selection-end-line="1957" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1-sources.jar!/javax/servlet/http/HttpServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="577" column="18" lean-forward="false" selection-start-line="577" selection-start-column="18" selection-end-line="577" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/common/util/PathParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/LinkAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="47" column="44" lean-forward="false" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/api/ImgAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="158" column="64" lean-forward="false" selection-start-line="158" selection-start-column="64" selection-end-line="158" selection-end-column="64" />
+          <folding>
+            <element signature="e#2769#2770#0" expanded="true" />
+            <element signature="e#2791#2792#0" expanded="true" />
+            <element signature="method#dealMD5AndSaving#0;class#ImgAPI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cwc/web/ypzj/servlets/ArticleServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="83" column="51" lean-forward="true" selection-start-line="83" selection-start-column="51" selection-end-line="83" selection-end-column="51" />
           <folding />
         </state>
       </provider>

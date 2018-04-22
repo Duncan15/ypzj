@@ -26,8 +26,27 @@ $(function(){
     event.preventDefault();
     /* Act on the event */
     var title=$title.val().trim();
-    var content=parser.parse();
+    var content=parser.parse().trim();
     var label=$hdLabelInput.val().trim();
+    $.ajax({
+      url: baseUrl+'article',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {
+        title:title,
+        content:content,
+        labelId:label
+      }
+    })
+    .done(function() {
+      window.location.replace(baseUrl+"user/personal");
+    })
+    .fail(function() {
+      alert("新建文章出错");
+    })
+    .always(function() {
+      console.log("complete");
+    });
 
   });
 });

@@ -55,6 +55,7 @@
 }
 body {
   background: rgb(255, 255, 255);
+  margin-top: 80px;
 }
 a {
   color: #1b8ff3;

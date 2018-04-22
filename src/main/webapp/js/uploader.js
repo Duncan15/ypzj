@@ -31,7 +31,7 @@ $(function(){
     }
     /* Act on the event */
     $.ajax({
-      url: '/YIPIANZHIJIAN/user/edit/img',
+      url: baseUrl+'user/img/1/article',
       dataType: 'JSON',
       type: 'POST',
       data: new FormData($("#pic-form")[0]),
@@ -56,7 +56,7 @@ $(function(){
 
         }
         //插入图片
-        $editor.insertContent('<图片'+list[each].imageAddr+'>\n');
+        $editor.insertContent('$图片'+list[each].imageAddr+'$\n');
         //删除上传的图片
         $file.after($file.clone().val(''));
         $file.remove();
@@ -85,7 +85,7 @@ $(function(){
       linkStr="http://".concat(linkStr);
     }
     $.ajax({
-      url: '/YIPIANZHIJIAN/user/edit/link',
+      url: baseUrl+'user/link/1/article',
       type: 'POST',
       dataType: 'json',
       data: {
@@ -100,7 +100,7 @@ $(function(){
         return;
       }
       //插入链接
-      $editor.insertContent('<链接'+desStr+'@'+linkStr+'*'+ans.rowId+'>\n');
+      $editor.insertContent('$链接'+linkStr+'*'+ans.rowId+'@'+desStr+'$\n');
       //删除输入栏
       $describe.val('');
       $link.val('');

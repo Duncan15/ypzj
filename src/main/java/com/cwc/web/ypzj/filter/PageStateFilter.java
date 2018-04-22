@@ -4,15 +4,14 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import com.cwc.web.ypzj.DAO.UserRepository;
-import com.cwc.web.ypzj.servletObj.User;
+import com.cwc.web.ypzj.db.DAO.UserRepository;
+import com.cwc.web.ypzj.db.dbObj.User;
 
 /**
  * Servlet Filter implementation class PageStateFilter

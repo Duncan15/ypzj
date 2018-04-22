@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.cwc.web.ypzj.servletObj.Label" %>
+<%@ page import="com.cwc.web.ypzj.db.dbObj.Label" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +15,7 @@
   <div class="top-panel container clearfix">
     <div class="col-xs-9">
       <div class="slider">
-        <img src="img/slider.png" alt="轮播图片">
+        <img src="img/20180407152842.jpg" alt="轮播图片">
       </div>
     </div>
     <div class="col-xs-3">

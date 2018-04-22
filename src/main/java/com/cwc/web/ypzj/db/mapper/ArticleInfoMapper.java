@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-import com.cwc.web.ypzj.servletObj.ArticleInfo;
+import com.cwc.web.ypzj.db.dbObj.ArticleInfo;
 
 public class ArticleInfoMapper extends RowMapper {
 
@@ -16,8 +16,9 @@ public class ArticleInfoMapper extends RowMapper {
 		Date createdTime=new Date(resultSet.getDate("created_time").getTime());
 		long supportedTime=resultSet.getLong("supported_time");
 		long topLabelId=resultSet.getLong("top_label_id");
-		String authorId=resultSet.getString("author_id");
-		return new ArticleInfo(id, articleName, createdTime, supportedTime, topLabelId, authorId);
+		Long authorId=resultSet.getLong("author_id");
+		String avatarId=resultSet.getString("avatar_id");
+		return new ArticleInfo(id, articleName, createdTime, supportedTime, topLabelId, authorId,avatarId);
 	}
 
 }

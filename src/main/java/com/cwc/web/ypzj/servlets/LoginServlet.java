@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.cwc.web.ypzj.DAO.UserRepository;
-import com.cwc.web.ypzj.servletObj.User;
+import com.cwc.web.ypzj.db.DAO.UserRepository;
+import com.cwc.web.ypzj.db.dbObj.User;
 
 /**
  * Servlet implementation class LoginServlet
@@ -48,22 +48,12 @@ public class LoginServlet extends HttpServlet {
 		if(user==null)
 		{
 			request.setAttribute("reason", "账号不存在");
-			try {
-				throw new Exception();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			throw new ServletException();
 		}
 		if(!password.equals(user.getPasswordMD5()))
 		{
 			request.setAttribute("reason", "密码错误");
-			try {
-				throw new Exception();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			throw new ServletException();
 		}
 		HttpSession session=request.getSession();
 		session.setMaxInactiveInterval(3600*24);
