@@ -6,15 +6,15 @@
 
   <filter>
     <filter-name>PageStateFilter</filter-name>
-    <filter-class>com.cwc.web.ypzj.filter.PageStateFilter</filter-class>
+    <filter-class>com.cwc.web.ypzj.control.filter.PageStateFilter</filter-class>
   </filter>
   <filter>
     <filter-name>PageDataFilter</filter-name>
-    <filter-class>com.cwc.web.ypzj.filter.PageDataFilter</filter-class>
+    <filter-class>com.cwc.web.ypzj.control.filter.PageDataFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>PageStateFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/user/*</url-pattern>
   </filter-mapping>
   <filter-mapping>
     <filter-name>PageDataFilter</filter-name>
@@ -47,35 +47,39 @@
     <servlet-name>AdminJSP</servlet-name>
     <jsp-file>/jsp/admin.jsp</jsp-file>
   </servlet>
+  <servlet>
+    <servlet-name>ManageJSP</servlet-name>
+    <jsp-file>/jsp/manage.jsp</jsp-file>
+  </servlet>
 
 
 
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.cwc.web.ypzj.servlets.LoginServlet</servlet-class>
+    <servlet-class>com.cwc.web.ypzj.control.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>com.cwc.web.ypzj.servlets.RegisterServlet</servlet-class>
+    <servlet-class>com.cwc.web.ypzj.control.servlets.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ArticleServlet</servlet-name>
-    <servlet-class>com.cwc.web.ypzj.servlets.ArticleServlet</servlet-class>
+    <servlet-class>com.cwc.web.ypzj.control.servlets.ArticleServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>LogOutServlet</servlet-name>
-    <servlet-class>com.cwc.web.ypzj.servlets.LogOutServlet</servlet-class>
+    <servlet-class>com.cwc.web.ypzj.control.servlets.LogOutServlet</servlet-class>
   </servlet>
 
 
 
   <servlet>
   	<servlet-name>ImgAPI</servlet-name>
-  	<servlet-class>com.cwc.web.ypzj.api.ImgAPI</servlet-class>
+  	<servlet-class>com.cwc.web.ypzj.control.api.apis.ImgAPI</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>LinkAPI</servlet-name>
-  	<servlet-class>com.cwc.web.ypzj.api.LinkAPI</servlet-class>
+  	<servlet-class>com.cwc.web.ypzj.control.api.apis.LinkAPI</servlet-class>
   </servlet>
 
 
@@ -122,14 +126,20 @@
   <servlet-mapping>
     <servlet-name>PersonalJSP</servlet-name>
     <url-pattern>/user/personal</url-pattern>
+    <url-pattern>/personal</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>TotalJSP</servlet-name>
     <url-pattern>/user/total</url-pattern>
+    <url-pattern>/total</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AdminJSP</servlet-name>
     <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ManageJSP</servlet-name>
+    <url-pattern>/user/manage</url-pattern>
   </servlet-mapping>
 
 

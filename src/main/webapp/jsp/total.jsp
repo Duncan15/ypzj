@@ -1,5 +1,6 @@
-<%@ page import="com.cwc.web.ypzj.db.dbObj.User" %>
-<%@ page import="com.cwc.web.ypzj.db.DAO.UserRepository" %><%--
+<%@ page import="com.cwc.web.ypzj.model.obj.User" %>
+<%@ page import="com.cwc.web.ypzj.model.DAO.UserRepository" %>
+<%@ page import="com.cwc.web.ypzj.util.RequestValidator" %><%--
   Created by IntelliJ IDEA.
   User: cwc
   Date: 2018/4/12
@@ -7,7 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
-<%
+<%  String mode= RequestValidator.validateIdRequest(request);
     Long authorId=null;
     Long pageNum=null;
     try{
@@ -16,6 +17,7 @@
         request.setAttribute("reason","id格式错误");
         throw new ServletException();
     }
+
     if(request.getParameter("pageNum")==null){
         pageNum=1l;
     }else {

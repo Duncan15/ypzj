@@ -2,12 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.Label" %>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.User" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.Label" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.User" %>
+<%String prefix=request.getParameter("prefix");
+  if(prefix==null){
+      prefix="";
+  }
+%>
 <div class="navbar navbar-default bcy navbar-fixed-top">
   <div class="container ">
     <div class="navbar-header">
-      <a href="index.html" class="navbar-brand"></a>
+      <a href="<%=prefix%>index.html" class="navbar-brand"></a>
     </div>
     <ul class="nav navbar-nav">
       <%! boolean checkId(long id,long labelId)
@@ -19,11 +24,11 @@
        <%List<Label> allLabelList=(List<Label>)session.getAttribute("labelList");
          long labelId=request.getParameter("labelId")==null?-1:Long.parseLong(request.getParameter("labelId"));%>
       <li class="<%=checkId(-1,labelId)?"active-local":""%>">
-        <a href="index.html">首页</a>
+        <a href="<%=prefix%>index.html">首页</a>
       </li>
       <% for(Label each:allLabelList){ %>
       <li class="<%=checkId(each.getId(),labelId)?"active-local":""%>">
-        <a href="kind?kindId=<%=each.getId() %>"><%=each.getName() %></a>
+        <a href="<%=prefix%>kind?kindId=<%=each.getId() %>"><%=each.getName() %></a>
       </li>
       <% } %>
     </ul>
@@ -39,19 +44,19 @@
     <ul class="nav navbar-nav navbar-right">
       <% if(currentUser==null){ %>
       <li>
-        <a href="login">登录</a>
+        <a href="<%=prefix%>login">登录</a>
       </li>
       <li>
-        <a href="register">注册</a>
+        <a href="<%=prefix%>register">注册</a>
       </li>
       <% }else{ %>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#"><%=currentUser %><b class="caret"></b></a>
       	<ul class="dropdown-menu">
-      		<li><a href="user/personal?id=<%=userId%>">个人主页</a></li>
-      		<li><a href="user/edit">新建文章</a></li>
-      		<li><a>账号管理</a></li>
-      		<li><a href="logout">退出</a></li>
+      		<li><a href="<%=prefix%>user/personal">个人主页</a></li>
+      		<li><a href="<%=prefix%>user/edit">新建文章</a></li>
+      		<li><a href="<%=prefix%>user/manage">账号管理</a></li>
+      		<li><a href="<%=prefix%>logout">退出</a></li>
       		
       	</ul>
       </li>

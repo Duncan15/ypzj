@@ -3,12 +3,12 @@
 <%@ page isELIgnored="false"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Date" %>
-<%@ page import="com.cwc.web.ypzj.db.DAO.ArticleRepository" %>
-<%@ page import="com.cwc.web.ypzj.db.DAO.UserRepository"%>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.ArticleInfo" %>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.ArticleContent"%>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.User"%>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.Label"%>
+<%@ page import="com.cwc.web.ypzj.model.DAO.ArticleRepository" %>
+<%@ page import="com.cwc.web.ypzj.model.DAO.UserRepository"%>
+<%@ page import="com.cwc.web.ypzj.model.obj.ArticleInfo" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.ArticleContent"%>
+<%@ page import="com.cwc.web.ypzj.model.obj.User"%>
+<%@ page import="com.cwc.web.ypzj.model.obj.Label"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html lang="en">

@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.cwc.web.ypzj.db.DAO.ArticleRepository" %>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.ArticleInfo" %>
+<%@ page import="com.cwc.web.ypzj.model.DAO.ArticleRepository" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.ArticleInfo" %>
 <div class="line-list">
   <%
   	 String isPublic=request.getParameter("public");

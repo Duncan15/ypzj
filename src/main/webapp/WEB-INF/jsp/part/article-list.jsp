@@ -1,5 +1,5 @@
-<%@ page import="com.cwc.web.ypzj.db.DAO.ArticleRepository" %>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.ArticleInfo" %>
+<%@ page import="com.cwc.web.ypzj.model.DAO.ArticleRepository" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.ArticleInfo" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.text.SimpleDateFormat" %><%--
   Created by IntelliJ IDEA.

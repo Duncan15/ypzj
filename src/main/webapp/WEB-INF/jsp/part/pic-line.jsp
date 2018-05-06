@@ -9,30 +9,29 @@
          pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ page import="java.util.List"%>
+<%@ page import="com.cwc.web.ypzj.model.DAO.CarouselRepository" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.Carousel" %>
 <div class="line-list">
     <%
-        int articleNum=Integer.parseInt(request.getParameter("articleNum"));
-        String numAttr="col-xs-"+12/articleNum;
-
-        if(list.size()<articleNum)articleNum=list.size();
+        String mode=request.getParameter("mode");
+        int itemNum=Integer.parseInt(request.getParameter("itemNum"));
+        String numAttr="col-xs-"+12/itemNum;
+        Object list=null;
+        if("carousel".equals(mode)){
+            list= CarouselRepository.getCarousels(itemNum);
+        }
     %>
     <div class="line-content clearfix">
-        <%for(int i=0;i<articleNum;i++){
-            ArticleInfo ar=list.get(i);
+        <%if("carousel".equals(mode)){
+            List<Carousel> carouselsList=(List<Carousel>)list;
+            if(carouselsList==null){itemNum=0;}
+            if(carouselsList.size()<itemNum){itemNum=carouselsList.size();}
+            for(int i=0;i<itemNum;i++){
         %>
-        <div class="<%=numAttr%>">
-            <a class="card" href="article?id=<%=ar.getId()%>">
-                <%String avatarId=ar.getAvatarId();
-                    if(avatarId==null){%>
-                <img src="img/default.png">
-                <%}else {%>
-                <img src="img/<%=avatarId%>">
-                <%}%>
-                <div class="card-title fwn fss fcn">
-                    <%=ar.getArticleName()%>
-                </div>
-            </a>
-        </div>
-        <%}%>
+            <div class="<%=numAttr%>">
+                <img src="img/<%=carouselsList.get(i).getImageName()%>">
+            </div>
+            <%}
+        }%>
     </div>
 </div>

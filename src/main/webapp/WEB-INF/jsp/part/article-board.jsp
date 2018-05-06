@@ -1,8 +1,8 @@
-<%@ page import="com.cwc.web.ypzj.db.DAO.ArticleRepository" %>
+<%@ page import="com.cwc.web.ypzj.model.DAO.ArticleRepository" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.ArticleInfo" %>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.User" %>
-<%@ page import="com.cwc.web.ypzj.db.DAO.UserRepository" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.ArticleInfo" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.User" %>
+<%@ page import="com.cwc.web.ypzj.model.DAO.UserRepository" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>

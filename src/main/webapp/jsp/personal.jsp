@@ -1,4 +1,5 @@
-<%@ page import="com.cwc.web.ypzj.db.dbObj.User" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.User" %>
+<%@ page import="com.cwc.web.ypzj.util.RequestValidator" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
@@ -11,17 +12,9 @@
   <title>一偏之荐</title>
 </head>
 <body>
-  <!--注意：id不再本页使用，因此为解析成String-->
-  <%String authorId=null;
-    authorId=request.getParameter("id");
-    if(authorId==null){
-      User usr=(User) session.getAttribute("currentUser");
-      if (usr==null){
-          request.setAttribute("reason","该用户不存在");
-      }else {
-          authorId=usr.getId().toString();
-      }
-    }
+  <!--注意：id不在本页使用，因此为解析成String-->
+  <%String mode= RequestValidator.validateIdRequest(request);
+    String authorId=request.getParameter("id");//当外部访问时
   %>
   <jsp:include page="/WEB-INF/jsp/part/navbar.jsp"/>
   <div class="main-panel container">

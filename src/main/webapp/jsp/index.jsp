@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.cwc.web.ypzj.db.dbObj.Label" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.Label" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
