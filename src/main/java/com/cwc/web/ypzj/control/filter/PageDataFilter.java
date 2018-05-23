@@ -19,7 +19,7 @@ import com.cwc.web.ypzj.model.obj.Label;
 /**
  * Servlet Filter implementation class PageDataFilter
  */
-@WebFilter(description = "deal with the display of page data")
+@WebFilter(description = "deal with the display of page data",filterName = "PageDataFilter",urlPatterns = {"/*"})
 public class PageDataFilter implements Filter {
 
     /**

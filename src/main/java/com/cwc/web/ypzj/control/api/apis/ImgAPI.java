@@ -1,27 +1,26 @@
 package com.cwc.web.ypzj.control.api.apis;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import com.cwc.web.ypzj.common.util.mailservice.ImageUtil;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.DAO.CarouselRepository;
 import com.cwc.web.ypzj.model.obj.Carousel;
-import com.cwc.web.ypzj.util.RequestParser;
+import com.cwc.web.ypzj.common.util.RequestParser;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -36,6 +35,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Servlet implementation class ImgAPI
  */
 @MultipartConfig
+@WebServlet(name = "ImgAPI",urlPatterns = {"/api/user/img","/api/admin/img"})
 public class ImgAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     /** 总上传文件最大为10M*/
@@ -48,6 +48,8 @@ public class ImgAPI extends HttpServlet {
     private static final String TEMP_IMAGE_DIR_PATH = "img/temp/";
 
     private String absImageDirPath="";
+    /*缩略图路径*/
+    private String thumbnailImgDirPath="";
 
     private static final int BUFFER_LENGTH=1024;
     private final SimpleDateFormat df=new SimpleDateFormat("yyyyMMddHHmmss");
@@ -64,8 +66,29 @@ public class ImgAPI extends HttpServlet {
 	public void init() throws ServletException {
 		super.init();
 		ServletContext context=this.getServletContext();
-		absImageDirPath=context.getRealPath(IMAGE_DIR_PATH);
-		String tempImgDirPath=context.getRealPath(TEMP_IMAGE_DIR_PATH);
+		Properties prop=new Properties();
+			try {
+				prop.load(new FileInputStream(new File((String)context.getAttribute("appConfigPath"))));
+			}catch (IOException e){
+				e.printStackTrace();
+			}
+
+		String tempImgDirPath=null;
+		if(prop.getProperty("static.switch").equals("true")){
+			absImageDirPath=prop.getProperty("static.location")+"img/";
+			tempImgDirPath=absImageDirPath+"temp/";
+		}else {
+			absImageDirPath=context.getRealPath(IMAGE_DIR_PATH);
+			tempImgDirPath=context.getRealPath(TEMP_IMAGE_DIR_PATH);
+		}
+
+		//确保缩略图文件夹的存在
+		thumbnailImgDirPath=absImageDirPath+"thumbnail/";
+		File thumbnailDir=new File(thumbnailImgDirPath);
+		if(!thumbnailDir.exists()){
+			thumbnailDir.mkdirs();
+		}
+
 		File tempPathFile = new File(tempImgDirPath);
 		File realPathFile = new File(absImageDirPath);
 		if (!tempPathFile.exists()) {
@@ -96,7 +119,6 @@ public class ImgAPI extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println(this.getServletContext().getResource("img").toString());
 	}
 
 	/**
@@ -106,13 +128,13 @@ public class ImgAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/json;charset=utf-8");
-		String[] param= RequestParser.parsePath(request.getRequestURI(),1);
+		String[] param= RequestParser.parsePath(request.getRequestURI(),2);
 
         if(param==null||!ServletFileUpload.isMultipartContent(request)){
         	RespWrapper.failReturn(response,Errno.PARAMERR);
         	return;
 		}
-        if("article".equals(param[0])){
+        if("user".equals(param[0])){
         	articlePicDeal(request,response);
 		}else if("admin".equals(param[0])){
 			carouselPicDeal(request,response);
@@ -172,16 +194,21 @@ public class ImgAPI extends HttpServlet {
 						if(ansName==null) {
 							unit=new ImgUploadResponseUnit(0, "add failed", null);
 						}else {
+							String avatarName="";
 							if(fileName.equals(ansName)) {
 								unit=new ImgUploadResponseUnit(1, "add success",fileName );
+								File sFile=new File(absImageDirPath+fileName);
+								File tFile=new File(thumbnailImgDirPath+fileName);
+								ImageUtil.thumnailImage(sFile,tFile,5);
 							}
 							else {
 								unit=new ImgUploadResponseUnit(2, "picture has exited", ansName);
 							}
+
 							HttpSession session=request.getSession();
 							if(session.getAttribute("avatar_id")==null){
 								//must delete this session attribute when store this id into model
-								session.setAttribute("avatar_id",ansName);
+								session.setAttribute("avatar_id",fileName);
 							}
 						}
 						responser.addUnit(unit);
@@ -215,6 +242,11 @@ public class ImgAPI extends HttpServlet {
 							carousel.setImageName(ansName);
 							if(CarouselRepository.saveCarousels(carousel)!=null){
 								flag=true;
+								File sFile=new File(absImageDirPath+fileName);
+								File tFile=new File(thumbnailImgDirPath+fileName);
+								if(!tFile.exists()){
+									ImageUtil.thumnailImage(sFile,tFile,5);
+								}
 							}
 						}
 					}

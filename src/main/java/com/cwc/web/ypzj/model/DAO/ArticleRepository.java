@@ -2,7 +2,6 @@ package com.cwc.web.ypzj.model.DAO;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.cwc.web.ypzj.model.pool.DBManager;
@@ -24,46 +23,46 @@ public class ArticleRepository {
 		content,
 		avatar_id
 	}
+
 	private static SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	/*
 	 * add article
 	 */
 	public static Long addArticle(String articleName,Long labelId,Long authorId,String content,String avatarId) {
-		DBManager dbManager;
+		DBManager dbManager=null;
 		try{
 			dbManager=new DBManager();
-		}catch (SQLException e){
-			e.printStackTrace();
-			return null;
-		}
-		try{
 			dbManager.supportTransaction(true);
 			String sql="insert into "+INFO_TABLE+"("+Arg.article_name.toString()+","+Arg.top_label_id.toString()+","+Arg.author_id.toString()+","+Arg.created_time.toString()+","+Arg.avatar_id.toString()+")values(?,?,?,?,?);";
 
 			Long articleId=dbManager.insertAndGetKey(sql,articleName,labelId,authorId,simpleDateFormat.format(new java.util.Date()),avatarId);
-			System.err.println(new java.util.Date().toString());
-			if(articleId!=null){
+			if(articleId!=-1){
 				sql="insert into "+CONTENT_TABLE+"("+Arg.id.toString()+","+Arg.content.toString()+")values(?,?);";
-				if(dbManager.insert(sql,articleId,content)!=null){
+				if(dbManager.insert(sql,articleId,content)!=-1){
 					dbManager.commit();
 					return articleId;
 				}
 			}
 			dbManager.rollback();
 			return null;
+		}catch (SQLException e){
+			e.printStackTrace();
+			return null;
 		}
 		finally {
-			dbManager.close();
+			if(dbManager!=null){
+				dbManager.close();
+			}
 		}
 	}
 	
 	public static ArticleInfo getArticleInfoById(Long id)//return null when haven't this article
 	{
 		String sql="select * from article_info_table where id=?;";
-		DBManager dbManager=null;
+		DBManager<ArticleInfo> dbManager=null;
 		try{
 			dbManager=new DBManager();
-			return (ArticleInfo)dbManager.queryObject(new ArticleInfoMapper(),sql,id);
+			return dbManager.queryObject(new ArticleInfoMapper(),sql,id);
 		}catch (SQLException e){
 			e.printStackTrace();
 			return null;
@@ -74,10 +73,10 @@ public class ArticleRepository {
 	public static ArticleContent getArticleContentByArticleId(Long id)//return null when haven't this article
 	{
 		String sql="select * from article_content_table where id=?;";
-		DBManager dbManager=null;
+		DBManager<ArticleContent> dbManager=null;
 		try {
 			dbManager=new DBManager();
-			return (ArticleContent)dbManager.queryObject(new ArticleContentMapper(),sql,id);
+			return dbManager.queryObject(new ArticleContentMapper(),sql,id);
 		}catch (SQLException e){
 			e.printStackTrace();
 			return null;
@@ -127,12 +126,12 @@ public class ArticleRepository {
 			e.printStackTrace();
 			return null;
 		}finally {
-			dbManager.close();
+			if(dbManager!=null)dbManager.close();
 		}
 	}
 
 	private static List<ArticleInfo> findByArgAOrderByArgBLimitStartAndLen(String argA,Object valueA,String argB,int start,int len){
-		DBManager dbManager=null;
+		DBManager<ArticleInfo> dbManager=null;
 		String sql="select * from "+INFO_TABLE;
 		String cond=" where "+argA+" = ? ";
 		sql+=cond;
@@ -143,23 +142,12 @@ public class ArticleRepository {
 		sql+=" limit "+start+","+len+";";
 		try{
 			dbManager=new DBManager();
-			return transfer(dbManager.findAll(new ArticleInfoMapper(),sql,valueA));
+			return dbManager.findAll(new ArticleInfoMapper(),sql,valueA);
 		}catch (SQLException e){
 			e.printStackTrace();
 			return null;
 		}finally {
-			dbManager.close();
+			if(dbManager!=null)dbManager.close();
 		}
 	}
-	private static List<ArticleInfo> transfer(List<Object> t) {
-		ArrayList<ArticleInfo> ans=null;
-		if(t!=null) {
-			ans=new ArrayList<>(t.size());
-			for(Object o:t) {
-				ans.add((ArticleInfo)o);
-			}
-		}
-		return ans;
-	}
-
 }

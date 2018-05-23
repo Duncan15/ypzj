@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cwc.web.ypzj.util.RequestParser;
+import com.cwc.web.ypzj.common.util.RequestParser;
 import com.cwc.web.ypzj.model.DAO.LinkRepository;
 import com.cwc.web.ypzj.control.api.obj.LinkResponser;
 import com.cwc.web.ypzj.model.obj.Link;
@@ -17,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Servlet implementation class LinkAPI
  */
+@WebServlet(name = "LinkAPI",urlPatterns = {"/api/user/link","/api/admin/link"})
 public class LinkAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,9 +45,11 @@ public class LinkAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
         response.setContentType("text/json;charset=utf-8");
-        String[] param= RequestParser.parsePath(request.getRequestURI(),1);
-        if("article".equals(param[0])){
+        String[] param= RequestParser.parsePath(request.getRequestURI(),2);
+        if("user".equals(param[0])){
             articleLinkDeal(request,response);
+        }else if("admin".equals(param[0])){
+
         }
 	}
 	private void articleLinkDeal(HttpServletRequest request, HttpServletResponse response)throws IOException{
@@ -62,7 +66,6 @@ public class LinkAPI extends HttpServlet {
         }
         ObjectMapper mapper=new ObjectMapper();
         String ans=mapper.writeValueAsString(responser);
-        System.out.println(ans);
         out.println(ans);
     }
 }

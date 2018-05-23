@@ -56,6 +56,7 @@
 body {
   background: rgb(255, 255, 255);
   margin-top: 80px;
+  font-family: 'Hiragino Sans GB', '幼圆', '楷体', Helvetica;
 }
 a {
   color: #1b8ff3;

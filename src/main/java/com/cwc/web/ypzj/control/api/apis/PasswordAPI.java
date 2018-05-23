@@ -5,8 +5,7 @@ import com.cwc.web.ypzj.control.api.format.req.JsonRequest;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.DAO.UserRepository;
 import com.cwc.web.ypzj.model.obj.User;
-import com.cwc.web.ypzj.util.JsonUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.cwc.web.ypzj.common.util.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet(name = "PasswordAPI",urlPatterns = {"/user/manage/password"})
+@WebServlet(name = "PasswordAPI",urlPatterns = {"/api/user/manage/password"})
 public class PasswordAPI extends HttpServlet {
     private static final int PASSWORD_LEST_LENGTH=6;
     private static final int PASSWORD_MOST_LENGTH=9;

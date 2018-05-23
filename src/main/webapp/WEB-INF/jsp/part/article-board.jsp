@@ -24,7 +24,7 @@
 <div class="article-card side-bar-card bcw fcb fsm">
   <div class="item card-top fwb"><%=title %>
     <%if("total".equals(mode)){%>
-    <a href="user/total?id=<%=authorId%>"> ...... </a>
+    <a href="total?id=<%=authorId%>"> ...... </a>
     <%}%>
   </div>
   <div class="item card-content">

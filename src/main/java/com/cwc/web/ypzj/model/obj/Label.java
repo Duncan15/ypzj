@@ -1,8 +1,11 @@
 package com.cwc.web.ypzj.model.obj;
 
-public class Label {
+import java.io.Serializable;
+
+public class Label implements Serializable{
 	private long id;
 	private String name;
+	public Label(){}
 	public Label(long id,String name)
 	{
 		this.id=id;

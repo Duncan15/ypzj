@@ -1,4 +1,4 @@
-package com.cwc.web.ypzj.util;
+package com.cwc.web.ypzj.common.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;

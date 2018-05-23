@@ -7,7 +7,7 @@ import java.util.List;
 import com.cwc.web.ypzj.model.mapper.RowMapper;
 
 
-public class DBManager {
+public class DBManager<E> {
 	private static ConnectionPool connPool=ConnectionPool.getInstance();
 	private Connection conn;
 	private PreparedStatement statement;
@@ -79,10 +79,10 @@ public class DBManager {
 			System.err.println("can't close statement");
 		}
 	}
-	public List<Object> findAll(RowMapper rowMapper,String sql,Object... param)
+	public List<E> findAll(RowMapper<E> rowMapper,String sql,Object... param)
 	{
+		ArrayList<E> ans=new ArrayList();
 		if(prepareQuery(sql,param)){
-			ArrayList<Object> ans=new ArrayList<>();
 			try
 			{
 				while(resultSet.next())
@@ -100,18 +100,22 @@ public class DBManager {
 			}
 
 		}
-		return null;
+		return ans;
 	}
-	
-	public Object queryObject(RowMapper rowMapper,String sql,Object... param)
+
+	/*
+	return null when can't get the target obj
+	 */
+	public E queryObject(RowMapper<E> rowMapper,String sql,Object... param)
 	{
 		if(prepareQuery(sql,param)){
-			ArrayList<Object> ans=new ArrayList<>();
 			try
 			{
 				if(resultSet.first())
 				{
 					return rowMapper.map(resultSet);
+				}else {
+					return null;
 				}
 			}
 			catch (Exception e) {
@@ -136,7 +140,7 @@ public class DBManager {
 				System.err.println("get num error");
 			}
 		}
-		return null;
+		return -1l;
 	}
 
 	public int update(String sql,Object... param)
@@ -151,7 +155,7 @@ public class DBManager {
 			// TODO: handle exception
 			e.printStackTrace();
 			System.err.println("update error");
-			return 0;
+			return -1;
 		}
 		finally {
 			clear();
@@ -172,6 +176,8 @@ public class DBManager {
 				statement.setBytes(i,(byte[])param[index]);
 			}else if(param[index] instanceof Timestamp){
 				statement.setTimestamp(i,(Timestamp) param[index]);
+			} else if(param[index] instanceof Byte){
+				statement.setByte(i,(Byte)param[index]);
 			} else if(param[index]==null){
 				statement.setNull(i,Types.INTEGER);
 			}
@@ -184,7 +190,7 @@ public class DBManager {
 	 * @param param
 	 * @return null if errors happen
 	 */
-	public Long insertAndGetKey(String sql,Object... param) {
+	public long insertAndGetKey(String sql,Object... param) {
 
 		try {
 			statement=conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -201,15 +207,15 @@ public class DBManager {
 		}finally {
 			clear();
 		}
-		return null;
+		return -1l;
 	}
 	/**
 	 * 
 	 * @param sql
 	 * @param param
-	 * @return 
+	 * @return -1 when can't insert
 	 */
-	public Integer insert(String sql,Object... param)
+	public int insert(String sql,Object... param)
 	{
 		try
 		{
@@ -221,7 +227,7 @@ public class DBManager {
 			// TODO: handle exception
 			e.printStackTrace();
 			System.err.println("insert error");
-			return null;
+			return -1;
 		}
 		finally {
 			clear();

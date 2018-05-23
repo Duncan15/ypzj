@@ -4,6 +4,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="com.cwc.web.ypzj.model.obj.Label" %>
 <%@ page import="com.cwc.web.ypzj.model.obj.User" %>
+<%@ page import="com.cwc.web.ypzj.common.util.RequestValidator" %>
 <%String prefix=request.getParameter("prefix");
   if(prefix==null){
       prefix="";
@@ -34,7 +35,7 @@
     </ul>
     <% User userObj=(User)(session.getAttribute("currentUser"));
        String currentUser=null;
-       long userId=0; 
+       Long userId=null;
        if(userObj!=null)
        {
          currentUser=userObj.getUserName();
@@ -53,14 +54,20 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#"><%=currentUser %><b class="caret"></b></a>
       	<ul class="dropdown-menu">
-      		<li><a href="<%=prefix%>user/personal">个人主页</a></li>
+      		<li><a href="<%=prefix%>personal?id=<%=userId%>">个人主页</a></li>
       		<li><a href="<%=prefix%>user/edit">新建文章</a></li>
       		<li><a href="<%=prefix%>user/manage">账号管理</a></li>
+            <%if(RequestValidator.validateAdminRequst(request)){%>
+              <li><a href="<%=prefix%>admin">平台管理</a></li>
+            <%}%>
       		<li><a href="<%=prefix%>logout">退出</a></li>
-      		
+
       	</ul>
       </li>
       <% } %>
     </ul>
+    <div class="hidden">
+      <div id="senderId"><%=userId%></div>
+    </div>
   </div>
 </div>

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 
-@WebServlet(name = "Brocast",urlPatterns ={"/admin/brocast"} )
+@WebServlet(name = "Brocast",urlPatterns ={"/api/admin/brocast"} )
 public class BrocastAPI extends HttpServlet {
     private ObjectMapper objectMapper=new ObjectMapper();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -31,7 +31,7 @@ $(function(){
     }
     /* Act on the event */
     $.ajax({
-      url: baseUrl+'user/img/article',
+      url: commonUtility.baseUrl+'api/user/img',
       dataType: 'JSON',
       type: 'POST',
       data: new FormData($("#pic-form")[0]),
@@ -85,7 +85,7 @@ $(function(){
       linkStr="http://".concat(linkStr);
     }
     $.ajax({
-      url: baseUrl+'user/link/article',
+      url: commonUtility.baseUrl+'api/user/link',
       type: 'POST',
       dataType: 'json',
       data: {

@@ -1,6 +1,6 @@
 package com.cwc.web.ypzj.control.api.format.req;
 
-import com.cwc.web.ypzj.util.RequestParser;
+import com.cwc.web.ypzj.common.util.RequestParser;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;

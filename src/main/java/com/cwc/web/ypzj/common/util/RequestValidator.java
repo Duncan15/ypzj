@@ -1,9 +1,10 @@
-package com.cwc.web.ypzj.util;
+package com.cwc.web.ypzj.common.util;
 
 import com.cwc.web.ypzj.model.obj.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class RequestValidator {
     public static String validateIdRequest(HttpServletRequest request)throws ServletException{
@@ -19,5 +20,20 @@ public class RequestValidator {
             mode = "visitor";
         }
         return mode;
+    }
+    public static boolean validateApiRequest(HttpServletRequest request)throws ServletException{
+        if(request.getRequestURI().replaceFirst(request.getContextPath()+"/","").startsWith("api/")){
+            return true;
+        }
+        return false;
+    }
+    public static boolean validateAdminRequst(HttpServletRequest request){
+        HttpSession session=request.getSession();
+        if(session!=null){
+            if((Boolean)session.getAttribute("adminMode")==true){
+                return true;
+            }
+        }
+        return false;
     }
 }

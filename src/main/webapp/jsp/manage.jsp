@@ -1,4 +1,6 @@
-<%@ page import="com.cwc.web.ypzj.model.obj.User" %><%--
+<%@ page import="com.cwc.web.ypzj.model.obj.User" %>
+<%@ page import="com.cwc.web.ypzj.model.obj.Signature" %>
+<%@ page import="com.cwc.web.ypzj.model.DAO.SignatureRepository" %><%--
   Created by IntelliJ IDEA.
   User: cwc
   Date: 2018/5/6
@@ -54,7 +56,9 @@
         }
     </style>
 </head>
-<%User usr=(User)session.getAttribute("currentUser");%>
+<%User usr=(User)session.getAttribute("currentUser");
+  Signature signature= SignatureRepository.getNewestSignature(usr.getId());
+%>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="80">
 <jsp:include page="/WEB-INF/jsp/part/navbar.jsp">
     <jsp:param name="prefix" value="../"/>
@@ -161,7 +165,7 @@
                     签名
                 </div>
                 <div class="col-sm-6 tac fwn fcb fsb">
-                    人生若只如初见，何事秋风悲画扇
+                    <%=signature.getContent()%>
                 </div>
                 <div class="col-sm-3 fwl fcb fsb btn btn-default" id="signature-link">
                     修改签名
@@ -187,10 +191,11 @@
         <a class="fcl" href="http://www.miitbeian.gov.cn">京ICP备17060481号-1</a>
     </div>
 </div>
-<script src="../js/global-param.js"></script>
+
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdn.bootcss.com/jqModal/1.4.2/jqModal.min.js"></script>
+<script src="../js/common.js"></script>
 <script src="../js/manage.js"></script>
 </body>
 </html>

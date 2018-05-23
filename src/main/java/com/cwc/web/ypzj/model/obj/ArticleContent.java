@@ -3,6 +3,7 @@ package com.cwc.web.ypzj.model.obj;
 public class ArticleContent {
 	private long id;
 	private String content;
+	public ArticleContent(){}
 	public ArticleContent(long id,String content) 
 	{
 		// TODO Auto-generated constructor stub

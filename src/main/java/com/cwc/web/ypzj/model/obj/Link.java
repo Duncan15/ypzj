@@ -5,6 +5,7 @@ public class Link {
 	private String intro;
 	private String link;
 	private Long articleId;
+	public Link(){}
 	public Link(Long id,String intro,String link,Long articleId) {
 		// TODO Auto-generated constructor stub
 		this.id=id;

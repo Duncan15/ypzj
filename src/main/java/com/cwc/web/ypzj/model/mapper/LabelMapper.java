@@ -8,8 +8,9 @@ import com.cwc.web.ypzj.model.obj.Label;
 public class LabelMapper extends RowMapper {
 
 	@Override
-	public Object map(ResultSet resultSet) throws SQLException {
+	public Label map(ResultSet resultSet) throws SQLException {
 		// TODO Auto-generated method stub
+		if(resultSet==null)return new Label();
 		return new Label(resultSet.getLong("id"), resultSet.getString("name"));
 	}
 

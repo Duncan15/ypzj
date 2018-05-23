@@ -213,10 +213,10 @@
             <a class="fcl" href="http://www.miitbeian.gov.cn">京ICP备17060481号-1</a>
         </div>
     </div>
-    <script src="js/global-param.js"></script>
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/jqModal/1.4.2/jqModal.min.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/admin.js"></script>
 
 </body>

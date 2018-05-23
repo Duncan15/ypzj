@@ -8,8 +8,9 @@ import com.cwc.web.ypzj.model.obj.Link;
 public class LinkMapper extends RowMapper {
 
 	@Override
-	public Object map(ResultSet resultSet) throws SQLException {
+	public Link map(ResultSet resultSet) throws SQLException {
 		// TODO Auto-generated method stub
+		if(resultSet==null)return new Link();
 		return new Link(resultSet.getLong("id"), resultSet.getString("intro"), resultSet.getString("link"), resultSet.getLong("article_id"));
 	}
 

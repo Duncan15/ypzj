@@ -7,5 +7,10 @@
   margin-bottom: 20px;
 }
 .validate-group {
+  position: relative;
   margin-bottom: 40px;
+}
+.validate-alarm {
+  position: absolute;
+  color: #f32807;
 }

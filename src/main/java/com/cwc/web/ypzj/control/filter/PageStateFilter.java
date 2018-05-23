@@ -1,22 +1,20 @@
 package com.cwc.web.ypzj.control.filter;
 
 import java.io.IOException;
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import com.cwc.web.ypzj.model.DAO.UserRepository;
+import com.cwc.web.ypzj.control.api.format.format.Errno;
+import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.obj.User;
+import com.cwc.web.ypzj.common.util.RequestValidator;
 
 /**
  * Servlet Filter implementation class PageStateFilter
  */
-@WebFilter(description = "deal with whether display the user status")
+@WebFilter(description = "deal with whether display the user status",filterName = "PageStateFilter",urlPatterns = {"/user/*","/api/user/*"})
 public class PageStateFilter implements Filter {
 
     /**
@@ -40,11 +38,17 @@ public class PageStateFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		HttpServletRequest hsrt=(HttpServletRequest)request;
+		HttpServletResponse hsrp=(HttpServletResponse)response;
 		User user=(User)hsrt.getSession().getAttribute("currentUser");
-		if(user==null)
+		if(user==null||user.getStatus()==0)
 		{
-			request.setAttribute("reason","登陆信息失效");
-			throw new ServletException();
+			if(RequestValidator.validateApiRequest(hsrt)){
+				RespWrapper.failReturn(hsrp, Errno.NOAUTHORITY);
+				return;
+			}else {
+				hsrp.sendRedirect(hsrt.getContextPath().concat("/login"));
+				return;
+			}
 		}
 		// pass the request along the filter chain
 		chain.doFilter(request, response);

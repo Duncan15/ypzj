@@ -15,6 +15,7 @@
     Integer totalNum=(int)ArticleRepository.getCountByAuthorId(authorId).longValue();
     if(totalNum%10==0){
         totalNum=totalNum/10;
+        if(totalNum<1)totalNum=1;
     }else {
         totalNum=totalNum/10+1;
     }
@@ -49,7 +50,7 @@
         }
     %>
     <%
-        String prefix="user/total?id=";
+        String prefix="total?id=";
         String sufix="&pageNum=";
     %>
     <jsp:include page="/WEB-INF/jsp/part/pagination.jsp">

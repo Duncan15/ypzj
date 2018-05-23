@@ -5,11 +5,12 @@ import java.sql.SQLException;
 
 import com.cwc.web.ypzj.model.obj.Image;
 
-public class ImageMapper extends RowMapper {
+public class ImageMapper extends RowMapper{
 
 	@Override
-	public Object map(ResultSet resultSet) throws SQLException {
+	public Image map(ResultSet resultSet) throws SQLException {
 		// TODO Auto-generated method stub
+		if(resultSet==null)return new Image();
 		String imageName=resultSet.getString("image_name");
 		byte[] MD5=resultSet.getBytes("MD5");
 		return new Image(imageName, MD5);

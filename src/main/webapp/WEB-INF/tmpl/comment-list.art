@@ -1,0 +1,47 @@
+<!-- <% for(var i=0;i<target.length;i++){ %>
+  <div class="comment line">
+    <div class="content-info line clearfix ">
+      <a href="personal?id=<%=target[i].senderId%>" class="fl comment-editor"><%=target[i].senderName%></a>
+      <%if(target[i].receiverId){%>
+        <span class="fcl">回复</span>
+        <a href="personal?id=<%=target[i].receiverId%>" class="fl comment-editor"><%=target[i].receiverName%></a>
+      <%}%>
+      <div class="fr comment-time"><%=target[i].createdTime%></div>
+    </div>
+    <div class="hidden">
+      <div class="topCommentId"><%=target[i].topCommentId%></div>
+      <div class="senderId"><%=target[i].senderId%></div>
+      <div class="receiverId"><%=target[i].receiverId%></div>
+
+    </div>
+    <div class="content-main">
+      <%=target[i].comment%>
+    </div>
+    <div class="button-line clearfix">
+      <div class="fr btn btn-xs btn-success">回复</div>
+    </div>
+  </div>
+<% } %> -->
+{{each $data as value index}}
+  <div class="comment line">
+    <div class="content-info line clearfix ">
+      <a href="personal?id={{value.senderId}}" class="fl comment-editor">{{value.senderName}}</a>
+      {{ if value.receiverId}}
+        <span class="fcl">回复</span>
+        <a href="personal?id={{value.receiverId}}" class="fl comment-editor">{{value.receiverName}}</a>
+      {{/if}}
+      <div class="fr comment-time">{{value.createdTime}}</div>
+    </div>
+    <div class="hidden">
+      <div class="topCommentId">{{value.topCommentId}}</div>
+      <div class="senderId">{{value.senderId}}</div>
+      <div class="receiverId">{{value.receiverId}}</div>
+    </div>
+    <div class="content-main">
+      {{value.comment}}
+    </div>
+    <div class="button-line clearfix">
+      <div class="fr btn btn-xs btn-success">回复</div>
+    </div>
+  </div>
+{{/each}}

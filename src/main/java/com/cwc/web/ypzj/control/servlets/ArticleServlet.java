@@ -1,8 +1,14 @@
 package com.cwc.web.ypzj.control.servlets;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cwc.web.ypzj.control.api.format.format.Errno;
+import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.DAO.ArticleRepository;
 import com.cwc.web.ypzj.model.obj.ArticleInfo;
 import com.cwc.web.ypzj.model.obj.User;
@@ -17,10 +25,10 @@ import com.cwc.web.ypzj.model.obj.User;
 /**
  * Servlet implementation class ArticleServlet
  */
-@WebServlet(description = "deal with the article display operation")
+@WebServlet(description = "deal with the article display operation",name = "ArticleServlet",urlPatterns = {"/article"})
 public class ArticleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private String staticHref=null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,6 +36,16 @@ public class ArticleServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+
+    @Override
+	public void init()throws ServletException{
+    	super.init();
+		ServletContext context=this.getServletContext();
+		if(context.getAttribute("static.href")!=null){
+			staticHref=(String)context.getAttribute("static.href");
+		}
+	}
+
 
 	/**
 	 * @throws IOException 
@@ -63,19 +81,23 @@ public class ArticleServlet extends HttpServlet {
 		String title=req.getParameter("title");
 		String content=req.getParameter("content");
 		String labelId=req.getParameter("labelId");
+		Map<String,Object> ans=new HashMap<>();
 		if(title==null||content==null||labelId==null){
-			req.setAttribute("reason","post格式错误");
-			throw new ServletException();
+			ans.put("reason","post格式错误");
+			RespWrapper.failReturn(resp, Errno.PARAMERR);
+			return;
 		}
 		if("".equals(title)||"".equals(content)){
-			req.setAttribute("reason","标题或内容不能为空");
-			throw new ServletException();
+			ans.put("reason","标题或内容不能为空");
+			RespWrapper.failReturn(resp, Errno.PARAMERR);
+			return;
 		}
 
 		User usr= (User) req.getSession().getAttribute("currentUser");
-		if(usr==null){
-			req.setAttribute("reason","无账户信息");
-			throw new ServletException();
+		if(usr==null||usr.getStatus()==0){
+			ans.put("reason","无账户信息");
+			RespWrapper.failReturn(resp, Errno.PARAMERR);
+			return;
 		}
 		Long authorId=usr.getId();
 		Long topLabelId=0l;
@@ -84,8 +106,9 @@ public class ArticleServlet extends HttpServlet {
 				topLabelId=Long.parseLong(labelId);
 			}catch (NumberFormatException e){
 				e.printStackTrace();
-				req.setAttribute("reason","labelId格式错误");
-				throw new ServletException();
+				ans.put("reason","labelId格式错误");
+				RespWrapper.failReturn(resp, Errno.PARAMERR);
+				return;
 			}
 		}
 		HttpSession session=req.getSession();
@@ -94,11 +117,20 @@ public class ArticleServlet extends HttpServlet {
 			avatarId=(String) session.getAttribute("avatar_id");
 			session.removeAttribute("avatar_id");
 		}
+
+		content=dealArticleContent(content);
 		Long articleId=ArticleRepository.addArticle(title,topLabelId,authorId,content,avatarId);
 		if(articleId==null){
-			req.setAttribute("reason","新建文章错误");
-			throw new ServletException();
+			ans.put("reason","新建文章错误");
+			RespWrapper.failReturn(resp, Errno.SYSERR);
+			return;
 		}
-		resp.getWriter().println(articleId);
+		RespWrapper.successReturn(resp,null);
+	}
+	private String dealArticleContent(String rawContent){
+		if(staticHref!=null){
+			rawContent=rawContent.replaceAll("<img\\s+?src=\"","<img src=\""+staticHref);
+		}
+		return rawContent;
 	}
 }

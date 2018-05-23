@@ -15,7 +15,8 @@ public class CarouselMapper extends RowMapper{
         this.getMd5OrNot=md5;
     }
     @Override
-    public Object map(ResultSet resultSet) throws SQLException {
+    public Carousel map(ResultSet resultSet) throws SQLException {
+        if(resultSet==null)return new Carousel();
         Long id=resultSet.getLong("id");
         String name=resultSet.getString("image_name");
         byte[] md5=null;

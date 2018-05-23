@@ -8,7 +8,8 @@ import java.sql.SQLException;
 
 public class BrocastMapper extends RowMapper {
     @Override
-    public Object map(ResultSet resultSet) throws SQLException {
+    public Brocast map(ResultSet resultSet) throws SQLException {
+        if(resultSet==null)return new Brocast();
         long id=resultSet.getLong("id");
         String content=resultSet.getString("content");
         byte deletd=resultSet.getByte("deleted");

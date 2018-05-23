@@ -48,23 +48,26 @@
         <div class="form-group validate-group">
           <label class="col-xs-2 control-label">邮箱</label>
           <div class="col-xs-10">
-            <input type="email" name="account" class="form-control" placeholder="请使用常用邮箱作为账号唯一标识">
+            <input id="new-email" type="email" name="account" class="form-control" placeholder="请使用常用邮箱作为账号唯一标识">
+            <div class="validate-alarm" id="email-alarm"></div>
           </div>
         </div>
         <div class="form-group validate-group">
           <label class="col-xs-2 control-label">昵称</label>
           <div class="col-xs-10">
-            <input type="text" name="user-name" class="form-control" placeholder="请为自己取一个好听的昵称">
+            <input id="new-username" type="text" name="user-name" class="form-control" placeholder="请为自己取一个好听的昵称">
+            <div class="validate-alarm" id="nickname-alarm"></div>
           </div>
         </div>
         <div class="form-group validate-group">
           <label class="col-xs-2 control-label">密码</label>
           <div class="col-xs-10">
-            <input type="password" name="password" class="form-control">
+            <input id="new-password" type="password" name="password" class="form-control">
+            <div class="validate-alarm" id="password-alarm"></div>
           </div>
         </div>
         <div class="form-group tac">
-          <button type="submit" class="btn btn-success">注册</button>
+          <button type="submit" class="btn btn-success" id="register-btn" onclick="register(event)">注册</button>
         </div>
       </form>
       <% } %>

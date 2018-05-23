@@ -10,6 +10,7 @@ public class ArticleInfo {
 	private long topLabelId;
 	private Long authorId;
 	private String avatarId;
+	public ArticleInfo(){}
 	public ArticleInfo(long id,String articleName,Date createdTime,long supportedTime,long topLabelId,Long authorId,String avatarId)
 	{
 		this.id=id;

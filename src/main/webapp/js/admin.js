@@ -35,7 +35,7 @@ $(function () {
     }
     /* Act on the event */
     $.ajax({
-      url: baseUrl+'user/img/admin',
+      url: commonUtility.baseUrl+'api/admin/img',
       dataType: 'JSON',
       type: 'POST',
       data: new FormData($("#pic-form")[0]),
@@ -72,7 +72,7 @@ $(function () {
       return;
     }
     $.ajax({
-      url: baseUrl+'admin/brocast',
+      url: commonUtility.baseUrl+'api/admin/brocast',
       type: 'POST',
       dataType: 'json',
       data: {content: content}

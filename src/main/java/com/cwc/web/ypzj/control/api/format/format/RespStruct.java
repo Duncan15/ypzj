@@ -1,7 +1,5 @@
 package com.cwc.web.ypzj.control.api.format.format;
 
-import com.sun.tools.javac.code.Attribute;
-
 public class RespStruct {
     private Object data;
     private String errmsg;

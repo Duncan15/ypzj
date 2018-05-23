@@ -13,6 +13,7 @@
 <%@ page import="com.cwc.web.ypzj.model.obj.Carousel" %>
 <div class="line-list">
     <%
+        String staticHref=request.getServletContext().getAttribute("static.href")==null?"":(String) request.getServletContext().getAttribute("static.href");
         String mode=request.getParameter("mode");
         int itemNum=Integer.parseInt(request.getParameter("itemNum"));
         String numAttr="col-xs-"+12/itemNum;
@@ -29,7 +30,7 @@
             for(int i=0;i<itemNum;i++){
         %>
             <div class="<%=numAttr%>">
-                <img src="img/<%=carouselsList.get(i).getImageName()%>">
+                <img src="<%=staticHref%>img/thumbnail/<%=carouselsList.get(i).getImageName()%>">
             </div>
             <%}
         }%>

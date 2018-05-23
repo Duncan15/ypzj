@@ -6,6 +6,8 @@
 <%@ page import="com.cwc.web.ypzj.model.obj.ArticleInfo" %>
 <div class="line-list">
   <%
+	 String staticHref=request.getServletContext().getAttribute("static.href")==null?"":(String) request.getServletContext().getAttribute("static.href");
+
   	 String isPublic=request.getParameter("public");
   	 List<ArticleInfo> list=null;
   	 int articleNum=Integer.parseInt(request.getParameter("articleNum"));
@@ -38,7 +40,7 @@
      if(list.size()<articleNum)articleNum=list.size();
   %>
   <div class="line-title item fcb fwb fsb"><%=title%></div>
-  <div class="line-content clearfix">
+  <div class="line-content clearfix tac">
     <%for(int i=0;i<articleNum;i++){
       ArticleInfo ar=list.get(i);
     %>
@@ -48,7 +50,7 @@
 		  if(avatarId==null){%>
 		<img src="img/default.png">
 		<%}else {%>
-        <img src="img/<%=avatarId%>">
+        <img src="<%=staticHref%>img/thumbnail/<%=avatarId%>">
 		<%}%>
         <div class="card-title fwn fss fcn">
           <%=ar.getArticleName()%>

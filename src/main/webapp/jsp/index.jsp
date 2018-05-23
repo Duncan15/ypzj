@@ -14,9 +14,9 @@
   <jsp:include page="/WEB-INF/jsp/part/navbar.jsp"/>
   <div class="top-panel container clearfix">
     <div class="col-xs-9">
-      <div class="slider">
-        <img src="img/20180407152842.jpg" alt="轮播图片">
-      </div>
+      <jsp:include page="/WEB-INF/jsp/part/carousels.jsp">
+        <jsp:param name="num" value="3"/>
+      </jsp:include>
     </div>
     <div class="col-xs-3">
       <%@include file="/WEB-INF/jsp/part/anounce-board.jsp" %>

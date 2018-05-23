@@ -9,7 +9,8 @@ import com.cwc.web.ypzj.model.obj.ArticleInfo;
 public class ArticleInfoMapper extends RowMapper {
 
 	@Override
-	public Object map(ResultSet resultSet) throws SQLException {
+	public ArticleInfo map(ResultSet resultSet) throws SQLException {
+		if (resultSet==null)return new ArticleInfo();
 		// TODO Auto-generated method stub
 		long id=resultSet.getLong("id");
 		String articleName=resultSet.getString("article_name");

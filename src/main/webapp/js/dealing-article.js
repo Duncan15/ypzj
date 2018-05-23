@@ -28,8 +28,10 @@ $(function(){
     var title=$title.val().trim();
     var content=parser.parse().trim();
     var label=$hdLabelInput.val().trim();
+    var senderId=$("#senderId").text().trim();
+    if(label=="")label="100";
     $.ajax({
-      url: baseUrl+'article',
+      url: commonUtility.baseUrl+'article',
       type: 'POST',
       dataType: 'JSON',
       data: {
@@ -38,10 +40,15 @@ $(function(){
         labelId:label
       }
     })
-    .done(function() {
-      window.location.replace(baseUrl+"user/personal");
+    .done(function(data) {
+      if(data["errno"]==200){
+        window.location.replace(commonUtility.baseUrl+"personal?id="+senderId);
+      }else {
+        commonUtility.dealAPI(data);
+      }
+
     })
-    .fail(function() {
+    .fail(function(data) {
       alert("新建文章出错");
     })
     .always(function() {

@@ -1,4 +1,4 @@
-package com.cwc.web.ypzj.util;
+package com.cwc.web.ypzj.common.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

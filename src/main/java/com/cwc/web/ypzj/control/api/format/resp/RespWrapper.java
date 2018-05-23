@@ -18,6 +18,9 @@ public class RespWrapper {
         Return(resp,ans);
     }
     private static void Return(HttpServletResponse resp,RespStruct struct){
+        resp.setContentType("text/json");
+        /*设置字符集为'UTF-8'*/
+        resp.setCharacterEncoding("UTF-8");
         try {
             objectMapper.writeValue(resp.getWriter(),struct);
         }catch (IOException e){

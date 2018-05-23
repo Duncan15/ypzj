@@ -24,12 +24,12 @@ public class LinkRepository {
 		String sql="insert into "+TABLE_NAME+"("+Arg.intro.toString()+","+Arg.link.toString()+")"
 				+"values(?,?);";
 		String searchSql="select * from "+TABLE_NAME+" where "+Arg.id.toString()+"=?;";
-		DBManager dbManager=null;
+		DBManager<Link> dbManager=null;
 		try{
 			dbManager=new DBManager();
 			Long linkId=dbManager.insertAndGetKey(sql,intro,link);
 			if(linkId!=null) {
-				Link linkObj=(Link) dbManager.queryObject(new LinkMapper(),searchSql, linkId);
+				Link linkObj=dbManager.queryObject(new LinkMapper(),searchSql, linkId);
 				return linkObj;
 			}
 		}catch (SQLException e){

@@ -5,7 +5,7 @@ import com.cwc.web.ypzj.control.api.format.req.JsonRequest;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.DAO.UserRepository;
 import com.cwc.web.ypzj.model.obj.User;
-import com.cwc.web.ypzj.util.JsonUtil;
+import com.cwc.web.ypzj.common.util.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet(name = "NicknameAPI",urlPatterns = {"/user/manage/nickname"})
+@WebServlet(name = "NicknameAPI",urlPatterns = {"/api/user/manage/nickname"})
 public class NicknameAPI extends HttpServlet {
     private static final int NAME_LEST_LENGTH=3;
     private static final int NAME_MOST_LENGTH=20;

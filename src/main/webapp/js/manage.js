@@ -26,6 +26,41 @@ $(function(){
     /* Act on the event */
     $("#password-modal").jqmShow();
   });
+  signatureSaveBtn.on('click',function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var signatureInput=$("#signature-content");
+    var content=signatureInput.val().trim();
+    if(content.length<3||content.length>100){
+      alert("签名长度不得小于3或大于100");
+      return;
+    }
+    $.ajax({
+      url: commonUtility.baseUrl+ 'api/user/manage/signature',
+      type: 'PUT',
+      dataType: 'json',
+      data: JSON.stringify({signature: content})
+    })
+    .done(function(data) {
+      console.log("success");
+      if(data["errno"]==200){
+        alert("签名修改成功.");
+        signatureExitBtn.trigger('click');
+        window.location.reload(true);
+        return;
+      }else{
+        alert("出现错误，签名修改失败.");
+        return;
+      }
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+  });
   nicknameSaveBtn.on('click',function(event) {
     event.preventDefault();
     /* Act on the event */
@@ -36,7 +71,7 @@ $(function(){
       return;
     }
     $.ajax({
-      url: baseUrl+'user/manage/nickname',
+      url: commonUtility.baseUrl+'api/user/manage/nickname',
       type: 'PUT',
       dataType: 'json',
       data: JSON.stringify({nickname: name})
@@ -79,7 +114,7 @@ $(function(){
       return;
     }
     $.ajax({
-      url: baseUrl+'user/manage/password',
+      url: commonUtility.baseUrl+'api/user/manage/password',
       type: 'PUT',
       dataType: 'json',
       contentType:"application/json;charset=utf-8",
