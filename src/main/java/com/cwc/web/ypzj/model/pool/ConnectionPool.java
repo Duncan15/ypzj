@@ -40,10 +40,6 @@ public class ConnectionPool{
         this.connArray=new ArrayBlockingQueue<>(this.poolMinSize);
         register();
 
-        System.out.println("url:"+connectionString);
-        System.out.println("username:"+username);
-        System.out.println("password:"+password);
-
         for(int i=0;i<this.poolMinSize;i++){
             try{
                 Connection tmp=DriverManager.getConnection(connectionString, username, password);

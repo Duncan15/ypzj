@@ -43,12 +43,12 @@ public class AttentionRelationRepository {
             }
         }
     }
-    public static Boolean isExist(Long startPoint,Long endPoint){
+    public static Boolean isExist(AttentionRelation attentionRelation){
         DBManager<AttentionRelation> dbManager=null;
         try{
             dbManager=new DBManager<>();
             String sql="select * from "+ATTENTION_TABLE+" where "+Arg.start_point.name()+" = ? and "+Arg.end_point.name()+" = ? ;";
-            if(dbManager.queryObject(new AttentionRelationMapper(),sql,startPoint,endPoint)==null){
+            if(dbManager.queryObject(new AttentionRelationMapper(),sql,attentionRelation.getStartPoint(),attentionRelation.getEndPoint())==null){
                 return false;
             }
             return true;
@@ -66,7 +66,7 @@ public class AttentionRelationRepository {
         DBManager<AttentionRelation> dbManager=null;
         try {
             dbManager=new DBManager<>();
-            String sql="select * from "+ATTENTION_TABLE+" where "+Arg.start_point.name()+" = ? order by "+Arg.time.name()+"asc limit ? , ? ;";
+            String sql="select * from "+ATTENTION_TABLE+" where "+Arg.start_point.name()+" = ? order by "+Arg.time.name()+" asc limit ? , ? ;";
             return dbManager.findAll(new AttentionRelationMapper(),sql,startPoint,start,len);
         }catch (SQLException e){
             e.printStackTrace();

@@ -94,7 +94,7 @@
         <jsp:param name="authorId" value="<%=authorId%>" />
       </jsp:include>
       <jsp:include page="part/user-list-board.jsp">
-      	<jsp:param value="<%=authorId %>" name="authorId"/>
+      	<jsp:param value="<%=authorId %>" name="userId"/>
       </jsp:include>
     </div>
   </div>

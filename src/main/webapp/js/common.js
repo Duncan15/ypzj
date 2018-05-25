@@ -19,6 +19,9 @@ var commonUtility=(function() {
       console.log(id2DesMap[204]);
       window.location.replace(baseUrl+"login");
     }
+    if(data["errno"]==500){
+      alert("系统错误");
+    }
   }
   return{
     dealAPI:dealAPI,

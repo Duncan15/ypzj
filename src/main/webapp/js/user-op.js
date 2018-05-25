@@ -124,12 +124,15 @@ $(function(){
         type: 'POST',
         dataType: 'json',
         contentType:"application/json;charset=utf-8",
-        data: {targetUserId: authorIdStr}
+        data: JSON.stringify({targetUserId: authorIdStr})
       })
       .done(function(data) {
         console.log("success");
         if(data["errno"]==200){
           alert("成功关注 "+data["data"]["targetUserName"]+" !");
+          window.location.reload(true);
+        }else if(data["errno"]==205){
+          alert("您已关注过他／她啦。")
         }else {
           commonUtility.dealAPI(data);
         }

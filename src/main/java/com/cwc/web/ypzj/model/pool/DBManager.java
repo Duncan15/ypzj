@@ -170,6 +170,8 @@ public class DBManager<E> {
 			int index=i-1;
 			if(param[index] instanceof Long){
 				statement.setLong(i,(Long)param[index]);
+			}else if(param[index] instanceof Integer) {
+				statement.setInt(i,(Integer)param[index]);
 			}else if(param[index] instanceof String){
 				statement.setString(i,(String)param[index]);
 			}else if(param[index] instanceof byte[]){

@@ -34,14 +34,20 @@ public class AttentionAPI extends HttpServlet {
         attentionRelation.setTime(new Date());
         User targetUser=null;
         if((targetUser=UserRepository.getUserById(targetUserId))!=null){
-            if(AttentionRelationRepository.connect(attentionRelation)){
-
-                Map<String,Object> ansMap=new HashMap<>();
-                ansMap.put("targetUserName",targetUser.getUserName());
-                RespWrapper.successReturn(response,ansMap);
-                return;
+            Boolean exist;
+            if((exist=AttentionRelationRepository.isExist(attentionRelation))!=null){
+                if(exist==false){
+                    if(AttentionRelationRepository.connect(attentionRelation)){
+                        Map<String,Object> ansMap=new HashMap<>();
+                        ansMap.put("targetUserName",targetUser.getUserName());
+                        RespWrapper.successReturn(response,ansMap);
+                        return;
+                    }
+                }else {
+                    RespWrapper.failReturn(response,Errno.HASEXIST);
+                    return;
+                }
             }
-
         }
         RespWrapper.failReturn(response, Errno.SYSERR);
         return;

@@ -67,7 +67,7 @@
         <jsp:param name="authorId" value="<%=authorId%>" />
       </jsp:include>
       <jsp:include page="/WEB-INF/jsp/part/user-list-board.jsp">
-      	<jsp:param value="cwc" name="userName"/>
+        <jsp:param name="userId" value="<%=authorId%>" />
       </jsp:include>
     </div>
   </div>
