@@ -1,8 +1,8 @@
 package com.cwc.web.ypzj.model.mapper;
 
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 
 import com.cwc.web.ypzj.model.obj.ArticleInfo;
 
@@ -14,7 +14,7 @@ public class ArticleInfoMapper extends RowMapper {
 		// TODO Auto-generated method stub
 		long id=resultSet.getLong("id");
 		String articleName=resultSet.getString("article_name");
-		Date createdTime=new Date(resultSet.getDate("created_time").getTime());
+		long createdTime=resultSet.getLong("created_time");
 		long supportedTime=resultSet.getLong("supported_time");
 		long topLabelId=resultSet.getLong("top_label_id");
 		Long authorId=resultSet.getLong("author_id");

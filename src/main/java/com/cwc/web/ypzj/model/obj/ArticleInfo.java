@@ -1,17 +1,18 @@
 package com.cwc.web.ypzj.model.obj;
 
+
 import java.util.Date;
 
 public class ArticleInfo {
 	private long id;
 	private String articleName;
-	private Date createdTime;
+	private long createdTime;
 	private long supportedTime;
 	private long topLabelId;
 	private Long authorId;
 	private String avatarId;
 	public ArticleInfo(){}
-	public ArticleInfo(long id,String articleName,Date createdTime,long supportedTime,long topLabelId,Long authorId,String avatarId)
+	public ArticleInfo(long id,String articleName,long createdTime,long supportedTime,long topLabelId,Long authorId,String avatarId)
 	{
 		this.id=id;
 		this.articleName=articleName;
@@ -31,7 +32,7 @@ public class ArticleInfo {
 	}
 	public Date getCreatedTime()
 	{
-		return this.createdTime;
+		return new Date(this.createdTime*1000);
 	}
 	public Long getSupportedTime()
 	{

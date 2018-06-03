@@ -1,7 +1,6 @@
 package com.cwc.web.ypzj.control.api.apis;
 
 import com.cwc.web.ypzj.control.api.format.format.Errno;
-import com.cwc.web.ypzj.control.api.format.format.RespStruct;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.DAO.BrocastRepository;
 import com.cwc.web.ypzj.model.obj.Brocast;

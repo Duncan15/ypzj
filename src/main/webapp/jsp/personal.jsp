@@ -1,5 +1,4 @@
 <%@ page import="com.cwc.web.ypzj.model.obj.User" %>
-<%@ page import="com.cwc.web.ypzj.common.util.RequestValidator" %>
 <%@ page import="com.cwc.web.ypzj.model.DAO.UserRepository" %>
 <%@ page import="com.cwc.web.ypzj.common.constant.MessageType" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

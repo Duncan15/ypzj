@@ -15,7 +15,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import com.cwc.web.ypzj.common.util.mailservice.ImageUtil;
+import com.cwc.web.ypzj.common.util.ImageUtil;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.DAO.CarouselRepository;

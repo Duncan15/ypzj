@@ -9,9 +9,9 @@
 <%@ page import="com.cwc.web.ypzj.model.obj.ArticleContent"%>
 <%@ page import="com.cwc.web.ypzj.model.obj.User"%>
 <%@ page import="com.cwc.web.ypzj.model.obj.Label"%>
-<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.cwc.web.ypzj.common.constant.MessageType" %>
 <%@ page import="com.cwc.web.ypzj.model.DAO.CommentRepository" %>
+<%@ page import="com.cwc.web.ypzj.common.util.locale.TimeLocale" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +45,6 @@
           break;
         }
       }
-      SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     %>
     <div class="article-panel col-xs-8">
       <div class="title-line line fcb fwb fssb fssm">
@@ -56,7 +55,7 @@
       </div>
       <div class="info-line line fwn fsm clearfix">
         <a class="fl item editor-name" href="personal?id=<%=authorId%>"><%=userName%></a>
-        <div class="fl item edit-time fcl"><%=simpleDateFormat.format(ai.getCreatedTime())%></div>
+        <div class="fl item edit-time fcl"><%=TimeLocale.defaultFormat.format(ai.getCreatedTime())%></div>
         <div class="fr item label label-info">推荐（<%=supportTime%>）</div>
         <div class="fr item label label-info">评论（<%=commentTimes%>）</div>
       </div>
@@ -67,7 +66,7 @@
         <%=content %>
       </div>
       <div class="declare-line line float-card item fcl fwn fsm">
-        ©️版权声明：本站原创文章，由<%=userName%>于<span><%=simpleDateFormat.format(ai.getCreatedTime())%></span>发表<br>
+        ©️版权声明：本站原创文章，由<%=userName%>于<span><%=TimeLocale.defaultFormat.format(ai.getCreatedTime())%></span>发表<br>
         转载请联系作者。
       </div>
       <div class="button-line line tac">

@@ -1,4 +1,4 @@
-package com.cwc.web.ypzj.common.util.mailservice;
+package com.cwc.web.ypzj.common.util;
 
 
 import javax.imageio.ImageIO;

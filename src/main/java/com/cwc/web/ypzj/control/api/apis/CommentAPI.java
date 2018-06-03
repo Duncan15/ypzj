@@ -3,6 +3,7 @@ package com.cwc.web.ypzj.control.api.apis;
 import com.cwc.web.ypzj.common.constant.MessageType;
 import com.cwc.web.ypzj.common.constant.Order;
 import com.cwc.web.ypzj.common.util.JsonUtil;
+import com.cwc.web.ypzj.common.util.locale.TimeLocale;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.req.JsonRequest;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
@@ -17,13 +18,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @WebServlet(name = "CommentAPI",urlPatterns = {"/api/user/comment","/api/comment"})
 public class CommentAPI extends HttpServlet {
-
-    private final SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(!request.getRequestURI().contains("user")){
             RespWrapper.failReturn(response,Errno.NOFOUND);
@@ -119,7 +117,7 @@ public class CommentAPI extends HttpServlet {
             ansUnit.put("receiverName",receiver.getUserName());
             ansUnit.put("messageType",each.getMessageType());
             ansUnit.put("hostId",each.getHostId());
-            ansUnit.put("createdTime",df.format(new Date(each.getCreatedTime()*1000)));
+            ansUnit.put("createdTime", TimeLocale.defaultFormat.format(new Date(each.getCreatedTime()*1000)));
             ansUnit.put("topCommentId",each.getTopCommentId());
             ansUnit.put("comment",each.getComment());
             list.add(ansUnit);

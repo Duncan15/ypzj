@@ -1,7 +1,9 @@
 package com.cwc.web.ypzj.model.DAO;
 
+
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.cwc.web.ypzj.model.pool.DBManager;
@@ -35,7 +37,7 @@ public class ArticleRepository {
 			dbManager.supportTransaction(true);
 			String sql="insert into "+INFO_TABLE+"("+Arg.article_name.toString()+","+Arg.top_label_id.toString()+","+Arg.author_id.toString()+","+Arg.created_time.toString()+","+Arg.avatar_id.toString()+")values(?,?,?,?,?);";
 
-			Long articleId=dbManager.insertAndGetKey(sql,articleName,labelId,authorId,simpleDateFormat.format(new java.util.Date()),avatarId);
+			Long articleId=dbManager.insertAndGetKey(sql,articleName,labelId,authorId,new Date().getTime()/1000,avatarId);
 			if(articleId!=-1){
 				sql="insert into "+CONTENT_TABLE+"("+Arg.id.toString()+","+Arg.content.toString()+")values(?,?);";
 				if(dbManager.insert(sql,articleId,content)!=-1){
