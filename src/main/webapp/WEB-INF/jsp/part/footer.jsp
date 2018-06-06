@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
+
 <div class="footer fcl">
   <div>
     <a href="#">关于本站</a> |

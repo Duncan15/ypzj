@@ -33,7 +33,12 @@
       <jsp:param name="articleNum" value="4" />
     </jsp:include>
     <%}%>
+    <jsp:include page="/WEB-INF/jsp/part/friend-link-panel.jsp">
+      <jsp:param name="" value=""/>
+    </jsp:include>
+
   </div>
+
   <%@include file="/WEB-INF/jsp/part/footer.jsp" %>
 </body>
 </html>

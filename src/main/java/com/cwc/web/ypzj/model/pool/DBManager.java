@@ -190,7 +190,7 @@ public class DBManager<E> {
 	 *
 	 * @param sql
 	 * @param param
-	 * @return null if errors happen
+	 * @return -1 if errors happen
 	 */
 	public long insertAndGetKey(String sql,Object... param) {
 

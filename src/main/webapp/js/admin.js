@@ -98,4 +98,39 @@ $(function () {
     });
 
   });
+  $linkSaveBtn.on('click',function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var intro=$("#describe").val().trim();
+    var link=$("#link").val().trim();
+    if(intro==""||link==""){
+      alert("内容不得为空");
+      return;
+    }
+    $.ajax({
+      url: commonUtility.baseUrl+'api/admin/friendLink',
+      type: 'POST',
+      dataType: 'json',contentType:"application/json;charset=utf-8",
+      data: JSON.stringify({
+        intro: intro,
+        link:link
+      })
+    })
+    .done(function(data) {
+      console.log("success");
+      if(data["errno"]==200){
+        alert("成功添加友链    "+data["data"]["newLink"]+"    !");
+        window.location.reload(true);
+      }else{
+        commonUtility.dealAPI(data);
+      }
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+  });
 });
