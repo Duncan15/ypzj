@@ -11,8 +11,9 @@ public class ArticleInfo {
 	private long topLabelId;
 	private Long authorId;
 	private String avatarId;
+	private Byte status;
 	public ArticleInfo(){}
-	public ArticleInfo(long id,String articleName,long createdTime,long supportedTime,long topLabelId,Long authorId,String avatarId)
+	public ArticleInfo(long id,String articleName,long createdTime,long supportedTime,long topLabelId,Long authorId,String avatarId,Byte status)
 	{
 		this.id=id;
 		this.articleName=articleName;
@@ -21,6 +22,7 @@ public class ArticleInfo {
 		this.topLabelId=topLabelId;
 		this.authorId=authorId;
 		this.avatarId=avatarId;
+		this.status=status;
 	}
 	public long getId()
 	{
@@ -49,5 +51,13 @@ public class ArticleInfo {
 
 	public String getAvatarId() {
 		return avatarId;
+	}
+
+	public void setStatus(Byte status) {
+		this.status = status;
+	}
+
+	public Byte getStatus() {
+		return status;
 	}
 }

@@ -60,7 +60,6 @@
 
 
 
-
   <servlet-mapping>
     <servlet-name>IndexJSP</servlet-name>
     <url-pattern>/index</url-pattern>
@@ -92,7 +91,6 @@
     <servlet-name>ManageJSP</servlet-name>
     <url-pattern>/user/manage</url-pattern>
   </servlet-mapping>
-
 
 
   <error-page>

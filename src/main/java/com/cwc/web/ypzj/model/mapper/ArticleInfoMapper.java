@@ -19,7 +19,8 @@ public class ArticleInfoMapper extends RowMapper {
 		long topLabelId=resultSet.getLong("top_label_id");
 		Long authorId=resultSet.getLong("author_id");
 		String avatarId=resultSet.getString("avatar_id");
-		return new ArticleInfo(id, articleName, createdTime, supportedTime, topLabelId, authorId,avatarId);
+		Byte status=resultSet.getByte("status");
+		return new ArticleInfo(id, articleName, createdTime, supportedTime, topLabelId, authorId,avatarId,status);
 	}
 
 }

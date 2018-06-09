@@ -133,4 +133,81 @@ $(function () {
     });
 
   });
+
+  $("#ban-article-btn").on('click',function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var articleName=$("#article-title").val().trim();
+    var articleAuthor=$("#article-author").val().trim();
+    $.ajax({
+      url: commonUtility.baseUrl+'api/admin/content',
+      type: 'POST',
+      dataType: 'json',
+      contentType:"application/json;charset=utf-8",
+      data: JSON.stringify({
+        action:"ban",
+        target:"article",
+        name:articleName,
+        author:articleAuthor
+      })
+    })
+    .done(function(data) {
+      console.log("success");
+      if(data["errno"]==200){
+        alert("成功禁止文章!");
+        window.location.reload(true);
+      }else if(data["errno"]==206){
+        alert("该文章已被封禁。");
+      }else if(data["errno"]==202){
+        alert("该文章不存在。");
+      }else {
+        commonUtility.dealAPI(data);
+      }
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+  });
+  $("#unban-article-btn").on('click', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var articleName=$("#article-title").val().trim();
+    var articleAuthor=$("#article-author").val().trim();
+    $.ajax({
+      url: commonUtility.baseUrl+'api/admin/content',
+      type: 'POST',
+      dataType: 'json',
+      contentType:"application/json;charset=utf-8",
+      data: JSON.stringify({
+        action:"unban",
+        target:"article",
+        name:articleName,
+        author:articleAuthor
+      })
+    })
+    .done(function(data) {
+      console.log("success");
+      if(data["errno"]==200){
+        alert("成功解禁文章!");
+        window.location.reload(true);
+      }else if(data["errno"]==207){
+        alert("该文章已被解禁。");
+      }else if(data["errno"]==202){
+        alert("该文章不存在。");
+      }else {
+        commonUtility.dealAPI(data);
+      }
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+  });
 });

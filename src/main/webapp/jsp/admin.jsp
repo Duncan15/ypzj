@@ -167,13 +167,13 @@
                     <div class="form-group modal-group">
                       <label class="col-xs-2 control-label">标题</label>
                       <div class="col-xs-10">
-                        <input required type="text" class="form-control" name="article-name" value="">
+                        <input required id="article-title" type="text" class="form-control"  value="">
                       </div>
                     </div>
                     <div class="form-group modal-group">
                       <label class="col-xs-2 control-label">作者</label>
                       <div class="col-xs-10">
-                        <input required type="url" class="form-control" name="author-name" value="">
+                        <input required id="article-author" type="text" class="form-control"  value="">
                       </div>
                     </div>
                     <div class="btn-group btn-group-sm btn-center">

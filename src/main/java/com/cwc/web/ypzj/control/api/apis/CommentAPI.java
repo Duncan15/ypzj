@@ -1,7 +1,6 @@
 package com.cwc.web.ypzj.control.api.apis;
 
-import com.cwc.web.ypzj.common.constant.MessageType;
-import com.cwc.web.ypzj.common.constant.Order;
+import com.cwc.web.ypzj.common.constant.Type;
 import com.cwc.web.ypzj.common.util.JsonUtil;
 import com.cwc.web.ypzj.common.util.locale.TimeLocale;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
@@ -81,7 +80,7 @@ public class CommentAPI extends HttpServlet {
         }
         if(topCommentIdStr!=null) {
             topCommentId = Long.parseLong(topCommentIdStr);
-            dbList=CommentRepository.getCommentDetails(topCommentId, pageSize, pageCount, Order.desc);
+            dbList=CommentRepository.getCommentDetails(topCommentId, pageSize, pageCount, Type.Order.DESC);
         }else {
             if(messageTypeStr==null||hostIdStr==null){
                 RespWrapper.failReturn(response,Errno.PARAMERR);
@@ -89,10 +88,10 @@ public class CommentAPI extends HttpServlet {
             }else {
                 messageType=Byte.parseByte(messageTypeStr);
                 hostId=Long.parseLong(hostIdStr);
-                if(messageType==MessageType.USER_COMMENT){
-                    dbList=CommentRepository.getComments(MessageType.USER_COMMENT,hostId,pageSize,pageCount,Order.desc);
-                }else if(messageType==MessageType.ARTICLE_COMMENT){
-                    dbList=CommentRepository.getComments(MessageType.ARTICLE_COMMENT,hostId,pageSize,pageCount,Order.asc);
+                if(messageType== Type.MessageType.USER_COMMENT.getValue()){
+                    dbList=CommentRepository.getComments(Type.MessageType.USER_COMMENT,hostId,pageSize,pageCount,Type.Order.DESC);
+                }else if(messageType==Type.MessageType.ARTICLE_COMMENT.getValue()){
+                    dbList=CommentRepository.getComments(Type.MessageType.ARTICLE_COMMENT,hostId,pageSize,pageCount,Type.Order.ASC);
                 }
             }
         }

@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.cwc.web.ypzj.common.constant.Type;
 import com.cwc.web.ypzj.model.pool.DBManager;
 import com.cwc.web.ypzj.model.mapper.ArticleContentMapper;
 import com.cwc.web.ypzj.model.mapper.ArticleInfoMapper;
@@ -23,10 +24,9 @@ public class ArticleRepository {
 		top_label_id,
 		author_id,
 		content,
-		avatar_id
+		avatar_id,
+		status
 	}
-
-	private static SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	/*
 	 * add article
 	 */
@@ -60,11 +60,11 @@ public class ArticleRepository {
 	
 	public static ArticleInfo getArticleInfoById(Long id)//return null when haven't this article
 	{
-		String sql="select * from article_info_table where id=?;";
+		String sql="select * from article_info_table where id=? and status =?;";
 		DBManager<ArticleInfo> dbManager=null;
 		try{
 			dbManager=new DBManager();
-			return dbManager.queryObject(new ArticleInfoMapper(),sql,id);
+			return dbManager.queryObject(new ArticleInfoMapper(),sql,id, Type.ContentStatus.UNBAN.getValue());
 		}catch (SQLException e){
 			e.printStackTrace();
 			return null;
@@ -115,15 +115,15 @@ public class ArticleRepository {
 	}
 	public static Long getCountByAuthorId(Long authorId){
 		DBManager dbManager=null;
-		String sql="select count(*) from "+INFO_TABLE;
+		String sql="select count(*) from "+INFO_TABLE+" where status=?";
 		String cond="";
 		if(authorId!=null){
-			cond+=" where "+Arg.author_id.toString()+" = ? ";
+			cond+=" and "+Arg.author_id.toString()+" = ? ";
 		}
 		sql+=cond;
 		try{
 			dbManager=new DBManager();
-			return dbManager.getNum(sql,authorId);
+			return dbManager.getNum(sql,Type.ContentStatus.UNBAN.getValue(),authorId);
 		}catch (Exception e){
 			e.printStackTrace();
 			return null;
@@ -135,7 +135,7 @@ public class ArticleRepository {
 	private static List<ArticleInfo> findByArgAOrderByArgBLimitStartAndLen(String argA,Object valueA,String argB,int start,int len){
 		DBManager<ArticleInfo> dbManager=null;
 		String sql="select * from "+INFO_TABLE;
-		String cond=" where "+argA+" = ? ";
+		String cond=" where "+argA+" = ? and status = ? ";
 		sql+=cond;
 		if(argB!=null){
 			String order=" order by "+argB+" desc ";
@@ -144,7 +144,7 @@ public class ArticleRepository {
 		sql+=" limit "+start+","+len+";";
 		try{
 			dbManager=new DBManager();
-			return dbManager.findAll(new ArticleInfoMapper(),sql,valueA);
+			return dbManager.findAll(new ArticleInfoMapper(),sql,valueA,Type.ContentStatus.UNBAN.getValue());
 		}catch (SQLException e){
 			e.printStackTrace();
 			return null;
@@ -152,4 +152,38 @@ public class ArticleRepository {
 			if(dbManager!=null)dbManager.close();
 		}
 	}
+
+	public static ArticleInfo getStatus(String title,long authorId){
+		DBManager<ArticleInfo> dbManager=null;
+		String sql="select * from "+INFO_TABLE+" where article_name=? and author_id=? ";
+		try {
+			dbManager=new DBManager<>();
+			ArticleInfo target=dbManager.queryObject(new ArticleInfoMapper(),sql,title,authorId);
+			return target;
+		}catch (SQLException e){
+			e.printStackTrace();
+			return null;
+		}finally {
+			if(dbManager!=null)dbManager.close();
+		}
+	}
+	public static boolean changeStatus(long articleId,byte status){
+		DBManager<ArticleInfo> dbManager=null;
+		String sql="update "+INFO_TABLE+" set status = ? where id = ?";
+		try {
+			dbManager = new DBManager<>();
+			if (dbManager.update(sql, status, articleId) == -1)
+				return false;
+			return true;
+		}catch (SQLException e){
+			e.printStackTrace();
+			return false;
+		}finally {
+			if(dbManager!=null){
+				dbManager.close();
+			}
+		}
+	}
+
+
 }

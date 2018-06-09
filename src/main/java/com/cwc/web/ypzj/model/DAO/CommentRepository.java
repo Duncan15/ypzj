@@ -1,6 +1,6 @@
 package com.cwc.web.ypzj.model.DAO;
 
-import com.cwc.web.ypzj.common.constant.Order;
+import com.cwc.web.ypzj.common.constant.Type;
 import com.cwc.web.ypzj.model.mapper.CommentMapper;
 import com.cwc.web.ypzj.model.obj.Comment;
 import com.cwc.web.ypzj.model.pool.DBManager;
@@ -36,12 +36,12 @@ public class CommentRepository {
             if(dbManager!=null)dbManager.close();
         }
     }
-    public static List<Comment> getComments(byte messageType, long hostId, int pageSize, int pageCount, Order order){
+    public static List<Comment> getComments(Type.MessageType messageType, long hostId, int pageSize, int pageCount, Type.Order order){
         DBManager<Comment> dbManager=null;
         try {
             dbManager=new DBManager<>();
             String sql="select * from "+TABLE_NAME+" where "+Arg.message_type.name()+" = ? and "+Arg.host_id.name()+" = ? order by "+Arg.created_time.name()
-                    +" "+order.name()+" limit "+(pageCount-1)*pageSize+","+pageSize+";";
+                    +" "+order+" limit "+(pageCount-1)*pageSize+","+pageSize+";";
             return dbManager.findAll(new CommentMapper(),sql,messageType,hostId);
         }catch (SQLException e){
             e.printStackTrace();
@@ -51,12 +51,12 @@ public class CommentRepository {
 
         }
     }
-    public static List<Comment> getCommentDetails(long topCommentId,int pageSize,int pageCount,Order order){
+    public static List<Comment> getCommentDetails(long topCommentId,int pageSize,int pageCount,Type.Order order){
         DBManager<Comment> dbManager=null;
         try{
             dbManager=new DBManager<>();
             String sql="select * from "+TABLE_NAME+" where "+Arg.top_comment_id.name()+" = ? order by "+Arg.created_time.name()
-                    +" "+order.name()+" limit "+(pageCount-1)*pageSize+","+pageSize+";";
+                    +" "+order+" limit "+(pageCount-1)*pageSize+","+pageSize+";";
             return dbManager.findAll(new CommentMapper(),sql,topCommentId);
         }catch (SQLException e){
             e.printStackTrace();
