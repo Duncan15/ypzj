@@ -9,9 +9,9 @@
 <%@ page import="com.cwc.web.ypzj.model.obj.ArticleContent"%>
 <%@ page import="com.cwc.web.ypzj.model.obj.User"%>
 <%@ page import="com.cwc.web.ypzj.model.obj.Label"%>
-<%@ page import="com.cwc.web.ypzj.common.constant.MessageType" %>
 <%@ page import="com.cwc.web.ypzj.model.DAO.CommentRepository" %>
 <%@ page import="com.cwc.web.ypzj.common.util.locale.TimeLocale" %>
+<%@ page import="com.cwc.web.ypzj.common.constant.Type" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +30,7 @@
       long supportTime=ai.getSupportedTime();
       long topLabelId=ai.getTopLabelId();
       Long authorId=ai.getAuthorId();
-      long commentTimes= CommentRepository.getCommentTimes(MessageType.ARTICLE_COMMENT,articleId);
+      long commentTimes= CommentRepository.getCommentTimes(Type.MessageType.ARTICLE_COMMENT,articleId);
       ArticleContent ac=ArticleRepository.getArticleContentByArticleId(articleId);
       String content=ac.getContent();
       User author=UserRepository.getUserById(authorId);
@@ -74,7 +74,7 @@
       </div>
       <jsp:include page="part/comment-panel.jsp" >
         <jsp:param name="hostId" value="<%=articleId%>" />
-        <jsp:param name="messageType" value="<%=MessageType.ARTICLE_COMMENT%>" />
+        <jsp:param name="messageType" value="<%=Type.MessageType.ARTICLE_COMMENT.getValue()%>" />
       </jsp:include>
     </div>
 

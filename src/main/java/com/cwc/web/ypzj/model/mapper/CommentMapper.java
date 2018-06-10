@@ -1,5 +1,6 @@
 package com.cwc.web.ypzj.model.mapper;
 
+import com.cwc.web.ypzj.common.constant.Type;
 import com.cwc.web.ypzj.model.obj.Comment;
 
 import java.sql.ResultSet;
@@ -17,7 +18,13 @@ public class CommentMapper extends RowMapper {
         comment.setSenderId(resultSet.getLong("sender_id"));
         comment.setReceiverId(resultSet.getLong("receiver_id"));
         comment.setTopCommentId(resultSet.getLong("top_comment_id"));
-        comment.setMessageType(resultSet.getByte("message_type"));
+        Byte typeValue=resultSet.getByte("message_type");
+        for(Type.MessageType each: Type.MessageType.values()){
+            if(typeValue==each.getValue()){
+                comment.setMessageType(each);
+                break;
+            }
+        }
         return  comment;
     }
 }

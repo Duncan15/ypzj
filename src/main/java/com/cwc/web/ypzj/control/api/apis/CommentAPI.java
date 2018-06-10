@@ -37,7 +37,12 @@ public class CommentAPI extends HttpServlet {
         Comment commentObj=new Comment();
         commentObj.setHostId((long)hostId.intValue());
         commentObj.setSenderId((long)senderId.intValue());
-        commentObj.setMessageType((byte)messageType.intValue());
+        for(Type.MessageType each: Type.MessageType.values()){
+            if(messageType==each.getValue()){
+                commentObj.setMessageType(each);
+                break;
+            }
+        }
         commentObj.setComment(comment);
         commentObj.setCreatedTime(new Date());
         Long ans=0l;

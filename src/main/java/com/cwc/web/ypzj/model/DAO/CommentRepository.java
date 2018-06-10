@@ -23,12 +23,12 @@ public class CommentRepository {
     }
     private static final String TABLE_NAME="comment_table";
 
-    public static long getCommentTimes(byte messageType,long hostId){
+    public static long getCommentTimes(Type.MessageType messageType,long hostId){
         DBManager<Comment> dbManager=null;
         try {
             dbManager=new DBManager<>();
             String sql="select count(*) as "+Arg.comment_times.name()+" from "+TABLE_NAME+" where "+Arg.message_type.name()+" = ? and "+Arg.host_id.name()+" = ? ;";
-            return dbManager.getNum(sql,messageType,hostId);
+            return dbManager.getNum(sql,messageType.getValue(),hostId);
         }catch (SQLException e) {
             e.printStackTrace();
             return -1;
@@ -42,7 +42,7 @@ public class CommentRepository {
             dbManager=new DBManager<>();
             String sql="select * from "+TABLE_NAME+" where "+Arg.message_type.name()+" = ? and "+Arg.host_id.name()+" = ? order by "+Arg.created_time.name()
                     +" "+order+" limit "+(pageCount-1)*pageSize+","+pageSize+";";
-            return dbManager.findAll(new CommentMapper(),sql,messageType,hostId);
+            return dbManager.findAll(new CommentMapper(),sql,messageType.getValue(),hostId);
         }catch (SQLException e){
             e.printStackTrace();
             return new ArrayList<>();
@@ -78,7 +78,7 @@ public class CommentRepository {
                     +Arg.comment.name()+","
                     +Arg.created_time.name()+")"
                     +"values(?,?,?,?,?);";
-            Long id=dbManager.insertAndGetKey(sql,comment.getHostId(),comment.getMessageType(),comment.getSenderId(),comment.getComment(),comment.getCreatedTime());
+            Long id=dbManager.insertAndGetKey(sql,comment.getHostId(),comment.getMessageType().getValue(),comment.getSenderId(),comment.getComment(),comment.getCreatedTime());
             if(id!=-1){
                 sql="update "+TABLE_NAME+" set "+Arg.top_comment_id.name()+" = ? where "+Arg.id.name()+" = ? ";
                 dbManager.update(sql,id,id);
@@ -110,7 +110,7 @@ public class CommentRepository {
                     +Arg.comment.name()+","
                     +Arg.created_time.name()+","
                     +Arg.top_comment_id.name()+")values(?,?,?,?,?,?,?);";
-            Long id=dbManager.insertAndGetKey(sql,comment.getHostId(),comment.getMessageType(),comment.getSenderId(),comment.getReceiverId(),comment.getComment(),comment.getCreatedTime(),comment.getTopCommentId());
+            Long id=dbManager.insertAndGetKey(sql,comment.getHostId(),comment.getMessageType().getValue(),comment.getSenderId(),comment.getReceiverId(),comment.getComment(),comment.getCreatedTime(),comment.getTopCommentId());
             return id;
 
         }catch (SQLException e){

@@ -1,6 +1,6 @@
 <%@ page import="com.cwc.web.ypzj.model.obj.User" %>
 <%@ page import="com.cwc.web.ypzj.model.DAO.UserRepository" %>
-<%@ page import="com.cwc.web.ypzj.common.constant.MessageType" %>
+<%@ page import="com.cwc.web.ypzj.common.constant.Type" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
@@ -51,7 +51,7 @@
       <div class="comment-panel">
         <jsp:include page="/WEB-INF/jsp/part/comment-panel.jsp" >
           <jsp:param name="hostId" value="<%=authorId%>" />
-          <jsp:param name="messageType" value="<%=MessageType.USER_COMMENT%>" />
+          <jsp:param name="messageType" value="<%=Type.MessageType.USER_COMMENT.getValue()%>" />
         </jsp:include>
       </div>
 

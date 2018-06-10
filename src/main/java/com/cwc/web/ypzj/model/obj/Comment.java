@@ -1,5 +1,7 @@
 package com.cwc.web.ypzj.model.obj;
 
+import com.cwc.web.ypzj.common.constant.Type;
+
 import java.util.Date;
 
 public class Comment {
@@ -10,7 +12,7 @@ public class Comment {
     private Long topCommentId;
     private String comment;
     private Long createdTime;
-    private Byte messageType;
+    private Type.MessageType messageType;
 
     public void setId(Long id) {
         this.id = id;
@@ -31,11 +33,11 @@ public class Comment {
         this.createdTime=date.getTime()/1000;
     }
 
-    public byte getMessageType() {
+    public Type.MessageType getMessageType() {
         return messageType;
     }
 
-    public void setMessageType(Byte messageType) {
+    public void setMessageType(Type.MessageType messageType) {
         this.messageType = messageType;
     }
 
