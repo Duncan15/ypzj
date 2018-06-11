@@ -1,12 +1,14 @@
  package com.cwc.web.ypzj.model.obj;
 
-public class User 
+ import com.cwc.web.ypzj.common.constant.Type;
+
+ public class User
 {
 	private Long id;
 	private String userName;
 	private String account;
 	private String passwordMD5;
-	private byte status;
+	private Type.UserStatus status;
 	private Long concernedTime;
 	public User(){}
 	public User(Long id,String userName,String account,String passwordMD5,Long concernedTime)
@@ -15,7 +17,7 @@ public class User
 		this.userName=userName;
 		this.account=account;
 		this.passwordMD5=passwordMD5;
-		this.status=0;
+		this.status=Type.UserStatus.INVALID;
 		this.concernedTime=concernedTime;
 	}
 	public Long getId(){return this.id;}
@@ -45,10 +47,10 @@ public class User
 	}
 
 	public byte getStatus() {
-		return status;
+		return status.getValue();
 	}
 
-	public void setStatus(byte status) {
+	public void setStatus(Type.UserStatus status) {
 		this.status = status;
 	}
 

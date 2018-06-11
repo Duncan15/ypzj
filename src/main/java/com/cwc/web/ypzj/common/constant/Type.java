@@ -28,4 +28,15 @@ public class Type {
             return value;
         }
     }
+    public enum UserStatus{
+        VALID((byte)1),
+        INVALID((byte)0);
+        UserStatus(byte value){
+            this.value=value;
+        }
+        private byte value;
+        public byte getValue(){
+            return value;
+        }
+    }
 }

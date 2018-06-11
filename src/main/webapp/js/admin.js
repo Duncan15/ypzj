@@ -139,8 +139,12 @@ $(function () {
     /* Act on the event */
     var articleName=$("#article-title").val().trim();
     var articleAuthor=$("#article-author").val().trim();
+    if(articleName==""||articleAuthor==""){
+      alert("请输入内容");
+      return;
+    }
     $.ajax({
-      url: commonUtility.baseUrl+'api/admin/content',
+      url: commonUtility.baseUrl+'api/admin/article',
       type: 'POST',
       dataType: 'json',
       contentType:"application/json;charset=utf-8",
@@ -177,8 +181,12 @@ $(function () {
     /* Act on the event */
     var articleName=$("#article-title").val().trim();
     var articleAuthor=$("#article-author").val().trim();
+    if(articleName==""||articleAuthor==""){
+      alert("请输入内容");
+      return;
+    }
     $.ajax({
-      url: commonUtility.baseUrl+'api/admin/content',
+      url: commonUtility.baseUrl+'api/admin/article',
       type: 'POST',
       dataType: 'json',
       contentType:"application/json;charset=utf-8",
@@ -198,6 +206,86 @@ $(function () {
         alert("该文章已被解禁。");
       }else if(data["errno"]==202){
         alert("该文章不存在。");
+      }else {
+        commonUtility.dealAPI(data);
+      }
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+  });
+  $("#ban-account-btn").on('click', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var accountName=$("#account-name").val().trim();
+    if(accountName==""){
+      alert("请输入内容!");
+      return;
+    }
+    $.ajax({
+      url: commonUtility.baseUrl+'api/admin/user',
+      type: 'POST',
+      dataType: 'json',
+      contentType:"application/json;charset=utf-8",
+      data: JSON.stringify({
+        action:"ban",
+        target:"user",
+        name:accountName
+      })
+    })
+    .done(function(data) {
+      console.log("success");
+      if(data["errno"]==200){
+        alert("成功禁止账号!");
+        window.location.reload(true);
+      }else if(data["errno"]==206){
+        alert("该账号已被封禁。");
+      }else if(data["errno"]==202){
+        alert("该账号不存在。");
+      }else {
+        commonUtility.dealAPI(data);
+      }
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+  });
+  $("#unban-account-btn").on('click', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var accountName=$("#account-name").val().trim();
+    if(accountName==""){
+      alert("请输入内容!");
+      return;
+    }
+    $.ajax({
+      url: commonUtility.baseUrl+'api/admin/user',
+      type: 'POST',
+      dataType: 'json',
+      contentType:"application/json;charset=utf-8",
+      data: JSON.stringify({
+        action:"unban",
+        target:"user",
+        name:accountName
+      })
+    })
+    .done(function(data) {
+      console.log("success");
+      if(data["errno"]==200){
+        alert("成功解禁账号!");
+        window.location.reload(true);
+      }else if(data["errno"]==207){
+        alert("该账号已被解禁。");
+      }else if(data["errno"]==202){
+        alert("该账号不存在。");
       }else {
         commonUtility.dealAPI(data);
       }

@@ -186,9 +186,9 @@
                 <div class="modal-title">账号管理</div>
                 <form class="form-horizontal">
                     <div class="form-group modal-group">
-                      <label class="col-xs-2 control-label">账号</label>
+                      <label class="col-xs-2 control-label">用户名</label>
                       <div class="col-xs-10">
-                        <input required type="text" class="form-control" name="account-name" value="">
+                        <input required type="text" class="form-control" id="account-name" value="">
                       </div>
                     </div>
                     <div class="btn-group btn-group-sm btn-center">

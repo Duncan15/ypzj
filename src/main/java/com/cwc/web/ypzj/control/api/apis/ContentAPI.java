@@ -19,13 +19,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "ContentAPI",urlPatterns = {"/api/admin/content"})
+@WebServlet(name = "ContentAPI",urlPatterns = {"/api/admin/article","/api/admin/user"})
 public class ContentAPI extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        JsonRequest jsRequest=new JsonRequest(request,0);
+        JsonRequest jsRequest=new JsonRequest(request,1);
         Map<String,Object> jsonMap= JsonUtil.readStirng2ObjectMap(jsRequest.getJsonBody());
         String action=(String)jsonMap.get("action");
-        String target=(String)jsonMap.get("target");
+        String target=jsRequest.getPathValue()[0];
         if("article".equals(target)){
             String name=(String)jsonMap.get("name");
             String author=(String)jsonMap.get("author");
@@ -36,7 +36,37 @@ public class ContentAPI extends HttpServlet {
             }else {
                 RespWrapper.successReturn(response,null);
             }
+        }else if("user".equals(target)){
+            String name=(String)jsonMap.get("name");
+            int ans=userManage(name,action);
+            if(ans!=Errno.SUCCESS){
+                RespWrapper.failReturn(response,ans);
+            }else {
+                RespWrapper.successReturn(response,null);
+            }
         }
+
+    }
+    private int userManage(String name,String action){
+        User user=UserRepository.getUserByUserName(name);
+        if(user==null)return Errno.NOEXIST;
+        if("ban".equals(action)){
+            if(user.getStatus()==Type.UserStatus.INVALID.getValue()){
+                return Errno.BAN;
+            }
+            user.setStatus(Type.UserStatus.INVALID);
+            if(UserRepository.updateUser(user)){
+                return Errno.SUCCESS;
+            }else return Errno.SYSERR;
+        }else if("unban".equals(action)){
+            if(user.getStatus()==Type.UserStatus.VALID.getValue()){
+                return Errno.UNBAN;
+            }
+            user.setStatus(Type.UserStatus.VALID);
+            if(UserRepository.updateUser(user)){
+                return Errno.SUCCESS;
+            }else return Errno.SYSERR;
+        }else return Errno.PARAMERR;
     }
     private int articleManage(String name, String author,String action){
         User user=UserRepository.getUserByUserName(author);

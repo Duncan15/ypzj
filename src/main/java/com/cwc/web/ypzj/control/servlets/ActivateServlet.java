@@ -1,5 +1,6 @@
 package com.cwc.web.ypzj.control.servlets;
 
+import com.cwc.web.ypzj.common.constant.Type;
 import com.cwc.web.ypzj.common.util.CryptologyUtil;
 import com.cwc.web.ypzj.model.DAO.UserRepository;
 import com.cwc.web.ypzj.model.obj.User;
@@ -56,7 +57,7 @@ public class ActivateServlet extends HttpServlet {
             throw new ServletException();
         }
         if(user.getId()==userId){
-            user.setStatus((byte) 1);
+            user.setStatus(Type.UserStatus.VALID);
             UserRepository.updateUser(user);
         }else {
             request.setAttribute("reason","对不起，激活令牌失效");
