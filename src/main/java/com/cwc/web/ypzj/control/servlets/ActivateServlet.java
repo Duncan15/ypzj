@@ -2,6 +2,7 @@ package com.cwc.web.ypzj.control.servlets;
 
 import com.cwc.web.ypzj.common.constant.Type;
 import com.cwc.web.ypzj.common.util.CryptologyUtil;
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.model.DAO.UserRepository;
 import com.cwc.web.ypzj.model.obj.User;
 
@@ -26,7 +27,7 @@ public class ActivateServlet extends HttpServlet {
         try {
             properties.load(new FileInputStream(new File((String)context.getAttribute("mailConfigPath"))));
         }catch (IOException e){
-            e.printStackTrace();
+            LogUtil.logger.error("error happen when load mainConfigFile at:"+(String)context.getAttribute("mailConfigPath"),e);
         }
         //when properties can't be loaded, these attributes would be null
         encryptKey=properties.getProperty("ypzj.mail.encryptKey");
@@ -42,17 +43,19 @@ public class ActivateServlet extends HttpServlet {
         try{
             decryptStr=CryptologyUtil.aesDecrypt(token,encryptKey);
         }catch (Exception e){
-            e.printStackTrace();
+            LogUtil.logger.error("error happen when decript activate token for account:"+account,e);
             request.setAttribute("reason","激活失败，请重试");
             throw new ServletException();
         }
         Long userId=Long.parseLong(decryptStr.replaceFirst(encryptKey,""));
         User user=UserRepository.getUserByAccount(account);
         if(user==null){
+            LogUtil.logger.warn("the account to be activate no exist:"+account);
             request.setAttribute("reason","所要激活的账号不存在");
             throw new ServletException();
         }
         if(user.getStatus()==1){
+            LogUtil.logger.warn("the account to be activate has been valid before:"+account);
             request.setAttribute("reason","该账号已被激活过，不可再次激活");
             throw new ServletException();
         }
@@ -60,7 +63,8 @@ public class ActivateServlet extends HttpServlet {
             user.setStatus(Type.UserStatus.VALID);
             UserRepository.updateUser(user);
         }else {
-            request.setAttribute("reason","对不起，激活令牌失效");
+            LogUtil.logger.warn("the activate token is invalid："+account);
+            request.setAttribute("reason","对不起，激活令牌无效");
             throw new ServletException();
         }
         request.setAttribute("reason","您的账号激活成功，本页面5秒后自动跳转。");

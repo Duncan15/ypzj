@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.model.DAO.UserRepository;
 import com.cwc.web.ypzj.model.obj.User;
 
@@ -42,12 +43,15 @@ public class LoginServlet extends HttpServlet {
 		try {
 			prop.load(new FileInputStream(new File((String) context.getAttribute("adminConfigPath"))));
 		}catch (IOException e){
-			e.printStackTrace();
+			LogUtil.logger.error("load adminConfigFile error from "+(String) context.getAttribute("adminConfigPath"),e);
 		}
 
 		//when properties can't be loaded, these attributes would be null
 		String adminAccountListStr=prop.getProperty("admin.accountList");
-		adminAcountArray=adminAccountListStr.split(",");
+		if(adminAccountListStr!=null){
+			adminAcountArray=adminAccountListStr.split(",");
+		}
+
 	}
 
 	/**
@@ -69,15 +73,18 @@ public class LoginServlet extends HttpServlet {
 		User user=UserRepository.getUserByAccount(account);
 		if(user==null)
 		{
+			LogUtil.logger.warn("this account no exist:"+account);
 			request.setAttribute("reason", "账号不存在");
 			throw new ServletException();
 		}
 		if(user.getStatus()==0){
+			LogUtil.logger.warn("this account hasn't been unbaned:"+account);
 			request.setAttribute("reason","请先通过邮件激活该账号");
 			throw new ServletException();
 		}
 		if(!password.equals(user.getPasswordMD5()))
 		{
+			LogUtil.logger.warn("password error:"+account);
 			request.setAttribute("reason", "密码错误");
 			throw new ServletException();
 		}

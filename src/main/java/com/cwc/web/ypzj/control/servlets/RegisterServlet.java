@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cwc.web.ypzj.common.util.CryptologyUtil;
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.common.util.mailservice.MailSenderFactory;
 import com.cwc.web.ypzj.common.util.multithread.LocalThreadPool;
 import com.cwc.web.ypzj.model.DAO.UserRepository;
@@ -46,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
 		try{
 			prop.load(new FileInputStream(new File((String)context.getAttribute("mailConfigPath"))));
 		}catch (IOException e){
-			e.printStackTrace();
+			LogUtil.logger.error("error happen when load mainConfigFile at:"+(String)context.getAttribute("mailConfigPath"),e);
 		}
 
 
@@ -89,6 +90,7 @@ public class RegisterServlet extends HttpServlet {
 		String userName=request.getParameter("user-name");
 		if(UserRepository.getUserByAccount(account)!=null)
 		{
+			LogUtil.logger.warn("this account has exist:"+account);
 			request.setAttribute("reason", "账号已存在");
 			throw new ServletException();
 		}
@@ -96,6 +98,7 @@ public class RegisterServlet extends HttpServlet {
 		newUser=UserRepository.createNewAccount(newUser);
 		if(newUser==null)
 		{
+			LogUtil.logger.error("inner error when insert into db:"+account);
 			request.setAttribute("reason", "服务器内部错误，注册失败");
 			throw new ServletException();
 		}
@@ -103,7 +106,7 @@ public class RegisterServlet extends HttpServlet {
 		try{
 			token=CryptologyUtil.aesEncrypt(encryptKey+newUser.getId(),encryptKey);
 		}catch (Exception e){
-			e.printStackTrace();
+			LogUtil.logger.error("inner error when encrypt:"+account,e);
 			request.setAttribute("reason","不好意思，服务器内部错误～_～");
 			throw new ServletException();
 		}

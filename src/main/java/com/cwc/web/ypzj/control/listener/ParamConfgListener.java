@@ -1,6 +1,8 @@
 package com.cwc.web.ypzj.control.listener;
 
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.model.pool.ConnectionPool;
+import org.apache.log4j.xml.DOMConfigurator;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -34,14 +36,22 @@ public class ParamConfgListener implements ServletContextListener,
          initialized(when the Web application is deployed). 
          You can initialize servlet context related data here.
       */
+        /*
+        本地部署情况下，在web.xml的context-param中配置配置文件路径，并在下面的代码块中load进文件
+        线上环境中，将配置文件路径配置在web.xml的externalConfigLocation所指向的文件中，并在下面的try-catch代码块中load进文件
+         */
         ServletContext context=sce.getServletContext();
         context.setAttribute("domain",context.getInitParameter("domain"));
         context.setAttribute("appConfigPath",context.getRealPath(context.getInitParameter("appConfigLocation")));
         context.setAttribute("mailConfigPath",context.getRealPath(context.getInitParameter("mailConfigLocation")));
         context.setAttribute("adminConfigPath",context.getRealPath(context.getInitParameter("adminConfigLocation")));
         context.setAttribute("mailTmplPath",context.getRealPath(context.getInitParameter("mailContentPath")));
+        context.setAttribute("log4jConfigPath",context.getRealPath(context.getInitParameter("log4jConfigLocation")));
+
+
         Properties prop=new Properties();
-        try{
+        String mode="online";
+        try{//本地部署情况下，此处报错
             String externalLocation=context.getInitParameter("externalConfigLocation");
             prop.load(new FileInputStream(new File(externalLocation)));
             context.setAttribute("domain",prop.getProperty("config.addr.domain"));
@@ -49,10 +59,11 @@ public class ParamConfgListener implements ServletContextListener,
 
             context.setAttribute("mailConfigPath",new URI(externalLocation).resolve(prop.getProperty("config.addr.mail")).getRawPath());
             context.setAttribute("adminConfigPath",new URI(externalLocation).resolve(prop.getProperty("config.addr.admin")).getPath());
+            context.setAttribute("log4jConfigPath",new URI(externalLocation).resolve(prop.getProperty("config.addr.log4j")).getPath());
         }catch (Exception e){
-            e.printStackTrace();
             try{
                 prop.load(new FileInputStream(new File((String) context.getAttribute("appConfigPath"))));
+                mode="dev";
             }catch (IOException s){
                 s.printStackTrace();
             }
@@ -66,6 +77,8 @@ public class ParamConfgListener implements ServletContextListener,
         ConnectionPool.password=prop.getProperty("db.password");
         ConnectionPool.poolMaxSize=Integer.parseInt(prop.getProperty("db.poolMaxSize"));
         ConnectionPool.poolMinSize=Integer.parseInt(prop.getProperty("db.poolMinSize"));
+        DOMConfigurator.configure((String) context.getAttribute("log4jConfigPath"));
+        LogUtil.logger.info("start up in "+mode+" mode ");
     }
 
     public void contextDestroyed(ServletContextEvent sce) {

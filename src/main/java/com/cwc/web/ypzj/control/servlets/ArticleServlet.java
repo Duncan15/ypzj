@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.DAO.ArticleRepository;
@@ -59,12 +60,14 @@ public class ArticleServlet extends HttpServlet {
 		catch (NumberFormatException e) 
 		{
 			// TODO: handle exception
+			LogUtil.logger.error("article ID pattern error",e);
 			request.setAttribute("reason", "文章ID格式错误");
 			throw new ServletException();
 		}
 		ArticleInfo targetArticleInfo=ArticleRepository.getArticleInfoById(articleId);
 		if(targetArticleInfo==null)
 		{
+			LogUtil.logger.warn("the article pointed to by ID no exist");
 			request.setAttribute("reason", "ID所指向的文章不存在");
 			throw new ServletException();
 		}
@@ -80,19 +83,19 @@ public class ArticleServlet extends HttpServlet {
 		String labelId=req.getParameter("labelId");
 		Map<String,Object> ans=new HashMap<>();
 		if(title==null||content==null||labelId==null){
-			ans.put("reason","post格式错误");
+			LogUtil.logger.warn("post pattern error");
 			RespWrapper.failReturn(resp, Errno.PARAMERR);
 			return;
 		}
 		if("".equals(title)||"".equals(content)){
-			ans.put("reason","标题或内容不能为空");
+			LogUtil.logger.warn("title or content can't be empty");
 			RespWrapper.failReturn(resp, Errno.PARAMERR);
 			return;
 		}
 
 		User usr= (User) req.getSession().getAttribute("currentUser");
 		if(usr==null||usr.getStatus()==0){
-			ans.put("reason","无账户信息");
+			LogUtil.logger.warn("illegal create article action，no account infomation");
 			RespWrapper.failReturn(resp, Errno.PARAMERR);
 			return;
 		}
@@ -102,8 +105,7 @@ public class ArticleServlet extends HttpServlet {
 			try{
 				topLabelId=Long.parseLong(labelId);
 			}catch (NumberFormatException e){
-				e.printStackTrace();
-				ans.put("reason","labelId格式错误");
+				LogUtil.logger.error("labelID pattern error",e);
 				RespWrapper.failReturn(resp, Errno.PARAMERR);
 				return;
 			}
@@ -118,7 +120,7 @@ public class ArticleServlet extends HttpServlet {
 		content=dealArticleContent(content);
 		Long articleId=ArticleRepository.addArticle(title,topLabelId,authorId,content,avatarId);
 		if(articleId==null){
-			ans.put("reason","新建文章错误");
+			LogUtil.logger.error("create article action error");
 			RespWrapper.failReturn(resp, Errno.SYSERR);
 			return;
 		}

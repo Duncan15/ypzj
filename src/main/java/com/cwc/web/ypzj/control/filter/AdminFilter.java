@@ -1,5 +1,6 @@
 package com.cwc.web.ypzj.control.filter;
 
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.common.util.RequestValidator;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
@@ -23,10 +24,12 @@ public class AdminFilter implements Filter {
         if(session!=null){
             Object adminMode=session.getAttribute("adminMode");
             if(adminMode!=null&&(boolean)session.getAttribute("adminMode")==true){
+                LogUtil.logger.info("legal administrator login");
                 chain.doFilter(req, resp);
                 return;
             }
         }
+        LogUtil.logger.warn("invalid administrator try to login");
         if(RequestValidator.validateApiRequest(hsrt)){
             RespWrapper.failReturn(hsrp, Errno.NOAUTHORITY);
             return;

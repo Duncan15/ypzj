@@ -6,10 +6,13 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.obj.User;
 import com.cwc.web.ypzj.common.util.RequestValidator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Servlet Filter implementation class PageStateFilter
@@ -42,6 +45,7 @@ public class PageStateFilter implements Filter {
 		User user=(User)hsrt.getSession().getAttribute("currentUser");
 		if(user==null||user.getStatus()==0)
 		{
+			LogUtil.logger.warn("redirect to login page");
 			if(RequestValidator.validateApiRequest(hsrt)){
 				RespWrapper.failReturn(hsrp, Errno.NOAUTHORITY);
 				return;

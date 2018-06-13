@@ -6,6 +6,8 @@
 .project
 .settings
 *.iml
+.idea
+
 #maven
 target
 
