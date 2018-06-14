@@ -2,6 +2,7 @@ package com.cwc.web.ypzj.control.api.apis;
 
 import com.cwc.web.ypzj.common.constant.Type;
 import com.cwc.web.ypzj.common.util.JsonUtil;
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.common.util.locale.TimeLocale;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.req.JsonRequest;
@@ -56,6 +57,7 @@ public class CommentAPI extends HttpServlet {
             ans=CommentRepository.saveSecondLevelComment(commentObj);
         }
         if(ans==-1||ans==null){
+            LogUtil.logger.error("db error when save comment:{}",comment);
             RespWrapper.failReturn(response, Errno.SYSERR);
             return;
         }else {

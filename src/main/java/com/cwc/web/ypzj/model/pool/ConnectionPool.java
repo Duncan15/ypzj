@@ -1,5 +1,7 @@
 package com.cwc.web.ypzj.model.pool;
 
+import com.cwc.web.ypzj.common.util.LogUtil;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -24,6 +26,7 @@ public class ConnectionPool{
     public static int poolMinSize;//连接池最小连接数
     private static int count;
     private static void register() {
+        LogUtil.dbLogger.info("load mysql driver");
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException e) {
@@ -35,6 +38,7 @@ public class ConnectionPool{
     private ArrayBlockingQueue<Connection> connArray;//实际连接池
     private ReentrantLock lock;
     private ConnectionPool(){
+        LogUtil.dbLogger.info("init ConnectionPool");
         this.count=this.poolMinSize;
         this.lock=new ReentrantLock();
         this.connArray=new ArrayBlockingQueue<>(this.poolMinSize);
@@ -61,14 +65,16 @@ public class ConnectionPool{
     }
     public Connection getConn(){
         if(connArray.isEmpty()){
+            LogUtil.dbLogger.info("array is empty now");
             lock.lock();
             if(count<poolMaxSize){
                 try{
+                    LogUtil.dbLogger.info("now have {} connections in use,create new connection",count);
                     Connection tmp=DriverManager.getConnection(connectionString, username, password);
                     count++;
                     return tmp;
                 }catch (SQLException e){
-                    e.printStackTrace();
+                    LogUtil.dbLogger.error("error happen when create new connection",e);
                     return null;
                 }
                 finally {
@@ -79,19 +85,24 @@ public class ConnectionPool{
                 lock.unlock();
             }
         }
+        LogUtil.dbLogger.info("now have {} connections in array,{} connections in use",connArray.size(),count);
         try{
             Connection ans= connArray.poll(3, TimeUnit.SECONDS);
-            if(ans==null)return null;
+            if(ans==null){
+                LogUtil.dbLogger.warn("can't get connection from array");
+                return null;
+            }
             if (ans.isValid(5)){
                 return ans;
             }else {
+                LogUtil.dbLogger.warn("connection from array is invalid,create new connection");
                 ans.close();
                 register();
                 Connection tmp=DriverManager.getConnection(connectionString, username, password);
                 return tmp;
             }
         }catch (Exception e){
-            e.printStackTrace();
+            LogUtil.dbLogger.error("error happen when create new connection",e);
             return null;
         }
     }
@@ -101,35 +112,37 @@ public class ConnectionPool{
             try{
                 conn.close();
             }catch (SQLException e){
-                e.printStackTrace();
+                LogUtil.dbLogger.error("error happen when close connection",e);
             }finally {
                 return false;
             }
         }
         connPool.lock.lock();
         if(connPool.connArray.size()>=poolMinSize){
+            LogUtil.dbLogger.info("array size is bigger than poolMinSize,try to close connection");
             try{
                 conn.close();
 
             }catch (SQLException e){
-                e.printStackTrace();
+                LogUtil.dbLogger.error("error happen when close connection",e);
             }finally {
-                connPool.lock.unlock();
                 count--;
-                return false;
+                connPool.lock.unlock();
             }
+            return false;
         }
+        LogUtil.dbLogger.info("array size is smaller than poolMaxSize,don't close connection");
         try {
             connPool.connArray.put(conn);
             return true;
         }catch (Exception e){
-            e.printStackTrace();
-            System.err.println("save connection fail");
+            LogUtil.dbLogger.error("error happen when put connection into array",e);
             try {
                 conn.close();
             }catch (SQLException e2){
-                e2.printStackTrace();
-                System.err.println("close connection fail");
+                LogUtil.dbLogger.error("error happen when close connection",e2);
+            }finally {
+                count--;
             }
             return false;
         }finally {

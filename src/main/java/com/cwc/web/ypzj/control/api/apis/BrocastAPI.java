@@ -1,5 +1,6 @@
 package com.cwc.web.ypzj.control.api.apis;
 
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
 import com.cwc.web.ypzj.model.DAO.BrocastRepository;
@@ -25,6 +26,7 @@ public class BrocastAPI extends HttpServlet {
         if(BrocastRepository.saveBrocast(brocast)!=null){
             RespWrapper.successReturn(response,null);
         }else {
+            LogUtil.logger.error("db error when insert brocast");
             RespWrapper.failReturn(response,Errno.SYSERR);
         }
     }

@@ -1,6 +1,7 @@
 package com.cwc.web.ypzj.control.api.apis;
 
 import com.cwc.web.ypzj.common.util.JsonUtil;
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.control.api.format.format.Errno;
 import com.cwc.web.ypzj.control.api.format.req.JsonRequest;
 import com.cwc.web.ypzj.control.api.format.resp.RespWrapper;
@@ -49,6 +50,7 @@ public class AttentionAPI extends HttpServlet {
                 }
             }
         }
+        LogUtil.logger.warn("the targetUser no exist:targetUserId="+targetUserId);
         RespWrapper.failReturn(response, Errno.SYSERR);
         return;
     }
