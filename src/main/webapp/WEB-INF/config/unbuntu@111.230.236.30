@@ -11,11 +11,11 @@
         </filter>
     </appender>
     <appender name="info-file" class="org.apache.log4j.RollingFileAppender">
-        <param name="ImmediateFlush" value="true"/>
+        <param name="ImmediateFlush" value="false"/>
         <param name="Append" value="true"/>
         <param name="MaxFileSize" value="5MB"/>
         <param name="MaxBackupIndex" value="10"/>
-        <param name="File" value="/Users/cwc/java/YPZJ/logs/ypzj.log"/>
+        <param name="File" value="logs/ypzj.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[ypzj] %d{yyyy/MM/dd HH:mm:ss,SSS} %C.%M(%L) | %m%n" />
         </layout>
@@ -25,11 +25,11 @@
         </filter>
     </appender>
     <appender name="err-file" class="org.apache.log4j.RollingFileAppender">
-        <param name="ImmediateFlush" value="true"/>
+        <param name="ImmediateFlush" value="false"/>
         <param name="Append" value="true"/>
         <param name="MaxFileSize" value="5MB"/>
         <param name="MaxBackupIndex" value="10"/>
-        <param name="File" value="/Users/cwc/java/YPZJ/logs/ypzj.log.wf"/>
+        <param name="File" value="logs/ypzj.log.wf"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[ypzj] %d{yyyy/MM/dd HH:mm:ss,SSS} %C.%M(%L) | %m%n" />
         </layout>
@@ -39,11 +39,11 @@
         </filter>
     </appender>
     <appender name="db-file" class="org.apache.log4j.RollingFileAppender">
-        <param name="ImmediateFlush" value="true"/>
+        <param name="ImmediateFlush" value="false"/>
         <param name="Append" value="true"/>
         <param name="MaxFileSize" value="5MB"/>
         <param name="MaxBackupIndex" value="10"/>
-        <param name="File" value="/Users/cwc/java/YPZJ/logs/db.log"/>
+        <param name="File" value="logs/db.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[ypzj] %d{yyyy/MM/dd HH:mm:ss,SSS} | %m%n" />
         </layout>
@@ -53,7 +53,7 @@
         <appender-ref ref="db-file"/>
     </logger>
     <root>
-        <level value="DEBUG"/>
+        <level value="debug"/>
         <appender-ref ref="console"/>
         <appender-ref ref="info-file"/>
         <appender-ref ref="err-file"/>

@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.cwc.web.ypzj.common.util.LogUtil;
 import com.cwc.web.ypzj.model.DAO.LabelRepository;
 import com.cwc.web.ypzj.model.obj.Label;
 
@@ -43,7 +44,8 @@ public class PageDataFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		HttpServletRequest httpServletRequest=(HttpServletRequest)request;
-		httpServletRequest.setCharacterEncoding("utf-8");//set the characterEncoding here for total pages
+
+
 		HttpSession session=httpServletRequest.getSession();
 		if(session.getAttribute("labelList")==null)
 		{
