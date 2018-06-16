@@ -34,7 +34,11 @@ public class LogUtil {
                 String headerValue=request.getHeader(headerName);
                 stringBuffer.append(headerName+"="+headerValue+"\t");
             }
-            LogUtil.logger.info("visit {} {} {}",request.getMethod(),api,stringBuffer.toString());
+            String ip=request.getRemoteAddr();
+            if(request.getHeader("x-forwarded-for")!=null){
+                ip=request.getHeader("x-forwarded-for");
+            }
+            LogUtil.logger.info("visit {} {} {} visitor={}",request.getMethod(),api,stringBuffer.toString(),ip);
         }
         public void leaveRecord(){
             duration=(new Date().getTime()-duration);
