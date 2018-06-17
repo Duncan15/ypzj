@@ -60,6 +60,10 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setAttribute("targetPage", "login");
+		String next=request.getParameter("next");
+		HttpSession session=request.getSession();
+		session.setAttribute("next",next);
+
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/validate.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -98,6 +102,13 @@ public class LoginServlet extends HttpServlet {
 				break;
 			}
 		}
-		response.sendRedirect("index");
+		String next=(String) session.getAttribute("next");
+		session.removeAttribute("next");
+		if(next==null||next.equals("")){
+			response.sendRedirect("index");
+		}else {
+			response.sendRedirect(next);
+		}
+
 	}
 }

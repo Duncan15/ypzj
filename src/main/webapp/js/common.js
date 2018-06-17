@@ -17,7 +17,7 @@ var commonUtility=(function() {
     }
     if(data["errno"]==204){
       console.log(id2DesMap[204]);
-      window.location.replace(baseUrl+"login");
+      window.location.replace(baseUrl+"login?next="+window.location.href);
     }
     if(data["errno"]==500){
       alert("系统错误");
