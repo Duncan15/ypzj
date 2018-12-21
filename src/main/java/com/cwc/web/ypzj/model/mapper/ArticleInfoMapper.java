@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import com.cwc.web.ypzj.model.obj.ArticleInfo;
 
-public class ArticleInfoMapper extends RowMapper {
+public class ArticleInfoMapper extends RowMapper<ArticleInfo> {
 
 	@Override
 	public ArticleInfo map(ResultSet resultSet) throws SQLException {

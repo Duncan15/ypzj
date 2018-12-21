@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import com.cwc.web.ypzj.common.constant.Type;
 import com.cwc.web.ypzj.model.obj.User;
 
-public class UserMapper extends RowMapper {
+public class UserMapper extends RowMapper<User> {
 
 	@Override
 	public User map(ResultSet resultSet) throws SQLException {

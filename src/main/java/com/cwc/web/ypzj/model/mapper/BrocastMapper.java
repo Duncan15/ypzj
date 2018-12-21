@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BrocastMapper extends RowMapper {
+public class BrocastMapper extends RowMapper<Brocast> {
     @Override
     public Brocast map(ResultSet resultSet) throws SQLException {
         if(resultSet==null)return new Brocast();

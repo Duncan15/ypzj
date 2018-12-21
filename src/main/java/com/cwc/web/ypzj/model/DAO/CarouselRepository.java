@@ -33,7 +33,7 @@ public class CarouselRepository {
         }
     }
     public static List<Carousel> getCarousels(int requiredNum){
-        DBManager<Carousel> dbManager=null;
+        DBManager dbManager=null;
         try{
             dbManager=new DBManager();
             String sql="select * from "+TABLE_NAME+" order by "+Arg.id.toString()+" desc limit "+requiredNum;

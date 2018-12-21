@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.cwc.web.ypzj.model.obj.ArticleContent;
 
-public class ArticleContentMapper extends RowMapper {
+public class ArticleContentMapper extends RowMapper<ArticleContent> {
 
 	@Override
 	public ArticleContent map(ResultSet resultSet) throws SQLException {

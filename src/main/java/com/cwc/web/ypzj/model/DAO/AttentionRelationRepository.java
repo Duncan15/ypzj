@@ -44,9 +44,9 @@ public class AttentionRelationRepository {
         }
     }
     public static Boolean isExist(AttentionRelation attentionRelation){
-        DBManager<AttentionRelation> dbManager=null;
+        DBManager dbManager=null;
         try{
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             String sql="select * from "+ATTENTION_TABLE+" where "+Arg.start_point.name()+" = ? and "+Arg.end_point.name()+" = ? ;";
             if(dbManager.queryObject(new AttentionRelationMapper(),sql,attentionRelation.getStartPoint(),attentionRelation.getEndPoint())==null){
                 return false;
@@ -63,9 +63,9 @@ public class AttentionRelationRepository {
         return getAttentionLimitStartAndLen(startPoint,0,N);
     }
     public static List<AttentionRelation> getAttentionLimitStartAndLen(Long startPoint,int start,int len){
-        DBManager<AttentionRelation> dbManager=null;
+        DBManager dbManager=null;
         try {
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             String sql="select * from "+ATTENTION_TABLE+" where "+Arg.start_point.name()+" = ? order by "+Arg.time.name()+" asc limit ? , ? ;";
             return dbManager.findAll(new AttentionRelationMapper(),sql,startPoint,start,len);
         }catch (SQLException e){
@@ -79,9 +79,9 @@ public class AttentionRelationRepository {
         return getAttentionedLimitStartAndLen(endPoint,0,N);
     }
     public static List<AttentionRelation> getAttentionedLimitStartAndLen(Long endPoint,int start,int len){
-        DBManager<AttentionRelation> dbManager=null;
+        DBManager dbManager=null;
         try {
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             String sql="select * from "+ATTENTION_TABLE+" where "+Arg.end_point.name()+" = ? order by "+Arg.time.name()+" asc limit ? , ? ;";
             return dbManager.findAll(new AttentionRelationMapper(),sql,endPoint,start,len);
         }catch (SQLException e){

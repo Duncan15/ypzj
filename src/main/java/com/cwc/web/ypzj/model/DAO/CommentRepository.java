@@ -24,9 +24,9 @@ public class CommentRepository {
     private static final String TABLE_NAME="comment_table";
 
     public static long getCommentTimes(Type.MessageType messageType,long hostId){
-        DBManager<Comment> dbManager=null;
+        DBManager dbManager=null;
         try {
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             String sql="select count(*) as "+Arg.comment_times.name()+" from "+TABLE_NAME+" where "+Arg.message_type.name()+" = ? and "+Arg.host_id.name()+" = ? ;";
             return dbManager.getNum(sql,messageType.getValue(),hostId);
         }catch (SQLException e) {
@@ -37,9 +37,9 @@ public class CommentRepository {
         }
     }
     public static List<Comment> getComments(Type.MessageType messageType, long hostId, int pageSize, int pageCount, Type.Order order){
-        DBManager<Comment> dbManager=null;
+        DBManager dbManager=null;
         try {
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             String sql="select * from "+TABLE_NAME+" where "+Arg.message_type.name()+" = ? and "+Arg.host_id.name()+" = ? order by "+Arg.created_time.name()
                     +" "+order+" limit "+(pageCount-1)*pageSize+","+pageSize+";";
             return dbManager.findAll(new CommentMapper(),sql,messageType.getValue(),hostId);
@@ -52,9 +52,9 @@ public class CommentRepository {
         }
     }
     public static List<Comment> getCommentDetails(long topCommentId,int pageSize,int pageCount,Type.Order order){
-        DBManager<Comment> dbManager=null;
+        DBManager dbManager=null;
         try{
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             String sql="select * from "+TABLE_NAME+" where "+Arg.top_comment_id.name()+" = ? order by "+Arg.created_time.name()
                     +" "+order+" limit "+(pageCount-1)*pageSize+","+pageSize+";";
             return dbManager.findAll(new CommentMapper(),sql,topCommentId);
@@ -67,9 +67,9 @@ public class CommentRepository {
     }
 
     public static Long saveTopCommnet(Comment comment){
-        DBManager<Comment> dbManager=null;
+        DBManager dbManager=null;
         try {
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             dbManager.supportTransaction(true);
             String sql="insert into "+TABLE_NAME+"("
                     +Arg.host_id.name()+","
@@ -99,9 +99,9 @@ public class CommentRepository {
         }
     }
     public static Long saveSecondLevelComment(Comment comment){
-        DBManager<Comment> dbManager=null;
+        DBManager dbManager=null;
         try{
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             String sql="insert into "+TABLE_NAME+"("
                     +Arg.host_id.name()+","
                     +Arg.message_type.name()+","

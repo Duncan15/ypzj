@@ -5,7 +5,7 @@ import com.cwc.web.ypzj.model.obj.Signature;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SignatureMapper extends RowMapper {
+public class SignatureMapper extends RowMapper<Signature> {
 
     @Override
     public Signature map(ResultSet resultSet) throws SQLException {

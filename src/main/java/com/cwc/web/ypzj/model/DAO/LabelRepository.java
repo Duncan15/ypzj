@@ -11,7 +11,7 @@ public class LabelRepository {
 	public static List<Label> getAllLabels()
 	{
 		String sql="select * from top_label_table";
-		DBManager<Label> dbManager=null;
+		DBManager dbManager=null;
 		List<Label> t=null;
 		try{
 			dbManager=new DBManager();

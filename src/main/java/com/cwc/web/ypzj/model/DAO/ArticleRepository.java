@@ -61,7 +61,7 @@ public class ArticleRepository {
 	public static ArticleInfo getArticleInfoById(Long id)//return null when haven't this article
 	{
 		String sql="select * from article_info_table where id=? and status =?;";
-		DBManager<ArticleInfo> dbManager=null;
+		DBManager dbManager=null;
 		try{
 			dbManager=new DBManager();
 			return dbManager.queryObject(new ArticleInfoMapper(),sql,id, Type.ContentStatus.UNBAN.getValue());
@@ -75,7 +75,7 @@ public class ArticleRepository {
 	public static ArticleContent getArticleContentByArticleId(Long id)//return null when haven't this article
 	{
 		String sql="select * from article_content_table where id=?;";
-		DBManager<ArticleContent> dbManager=null;
+		DBManager dbManager=null;
 		try {
 			dbManager=new DBManager();
 			return dbManager.queryObject(new ArticleContentMapper(),sql,id);
@@ -133,7 +133,7 @@ public class ArticleRepository {
 	}
 
 	private static List<ArticleInfo> findByArgAOrderByArgBLimitStartAndLen(String argA,Object valueA,String argB,int start,int len){
-		DBManager<ArticleInfo> dbManager=null;
+		DBManager dbManager=null;
 		String sql="select * from "+INFO_TABLE;
 		String cond=" where "+argA+" = ? and status = ? ";
 		sql+=cond;
@@ -154,10 +154,10 @@ public class ArticleRepository {
 	}
 
 	public static ArticleInfo getStatus(String title,long authorId){
-		DBManager<ArticleInfo> dbManager=null;
+		DBManager dbManager=null;
 		String sql="select * from "+INFO_TABLE+" where article_name=? and author_id=? ";
 		try {
-			dbManager=new DBManager<>();
+			dbManager=new DBManager();
 			ArticleInfo target=dbManager.queryObject(new ArticleInfoMapper(),sql,title,authorId);
 			return target;
 		}catch (SQLException e){
@@ -168,10 +168,10 @@ public class ArticleRepository {
 		}
 	}
 	public static boolean changeStatus(long articleId,byte status){
-		DBManager<ArticleInfo> dbManager=null;
+		DBManager dbManager=null;
 		String sql="update "+INFO_TABLE+" set status = ? where id = ?";
 		try {
-			dbManager = new DBManager<>();
+			dbManager = new DBManager();
 			if (dbManager.update(sql, status, articleId) == -1)
 				return false;
 			return true;

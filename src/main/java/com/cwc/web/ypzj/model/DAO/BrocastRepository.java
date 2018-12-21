@@ -15,7 +15,7 @@ public class BrocastRepository {
     }
     private static final String TABLE_NAME="brocast_table";
     public static Brocast getNewestBrocast(){
-        DBManager<Brocast> dbManager=null;
+        DBManager dbManager=null;
         try{
             dbManager=new DBManager();
             String sql="select * from "+TABLE_NAME+" order by "+Arg.time.toString()+" desc";

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.cwc.web.ypzj.model.obj.Link;
 
-public class LinkMapper extends RowMapper {
+public class LinkMapper extends RowMapper<Link> {
 
 	@Override
 	public Link map(ResultSet resultSet) throws SQLException {

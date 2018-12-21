@@ -35,7 +35,7 @@ public class SignatureRepository {
     }
     public static Signature getNewestSignature(Long authorId){
         String sql="select * from "+TABLE_NAME+" where "+Arg.author_id.name()+" = ? order by "+Arg.created_time+" desc;";
-        DBManager<Signature> dbManager=null;
+        DBManager dbManager=null;
         Signature signature=null;
         try {
             dbManager=new DBManager();

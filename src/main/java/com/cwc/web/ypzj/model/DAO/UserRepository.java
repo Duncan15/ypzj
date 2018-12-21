@@ -18,7 +18,7 @@ public class UserRepository {
 	}
 	public static User getUserByAccount(String account) {
 		String sqlString="select * from "+TABLE+" where "+Arg.account.toString()+"=?;";
-		DBManager<User> dbManager=null;
+		DBManager dbManager=null;
 		try {
 			dbManager=new DBManager();
 			return  dbManager.queryObject(new UserMapper(),sqlString,account);//if not exist, here return null
@@ -31,9 +31,9 @@ public class UserRepository {
 	}
 	public static User getUserByUserName(String userName){
 		String sql="select * from "+TABLE+" where "+Arg.user_name.name()+" = ? ;";
-		DBManager<User> dbManager=null;
+		DBManager dbManager=null;
 		try {
-			dbManager=new DBManager<>();
+			dbManager=new DBManager();
 			return dbManager.queryObject(new UserMapper(),sql,userName);
 		}catch (SQLException e){
 			e.printStackTrace();
@@ -45,7 +45,7 @@ public class UserRepository {
 	}
 	public static User getUserById(Long id){
 		String sql="select * from "+TABLE+" where "+Arg.id.toString()+" = ?;";
-		DBManager<User> dbManager=null;
+		DBManager dbManager=null;
 		try {
 			dbManager=new DBManager();
 			return dbManager.queryObject(new UserMapper(),sql,id);
@@ -94,7 +94,7 @@ public class UserRepository {
 	public static User createNewAccount(User usr)
 	{
 		String sqlString="insert into "+TABLE+"("+Arg.account.toString()+","+Arg.user_name.toString()+","+Arg.password_md5.toString()+","+Arg.status.name()+")"+" values(?,?,?,?);";
-		DBManager<User> dbManager=null;
+		DBManager dbManager=null;
 		Long ans=0l;
 		try{
 			dbManager=new DBManager();

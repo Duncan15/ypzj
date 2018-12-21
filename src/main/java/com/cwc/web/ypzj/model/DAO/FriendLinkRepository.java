@@ -17,9 +17,9 @@ public class FriendLinkRepository {
         intro
     }
     public static List<FriendLink> getTopNFriendLink(int n){
-        DBManager<FriendLink> dbManager=null;
+        DBManager dbManager=null;
         try{
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             String sql="select a.id as id,b.link as link,b.intro as intro from friend_link_table as a left outer join link_table as b on a.ref_id=b.id order by id desc;";
             return dbManager.findAll(new FriendMapper(),sql);
         }catch (SQLException e){
@@ -30,9 +30,9 @@ public class FriendLinkRepository {
         }
     }
     public static boolean addNewLink(FriendLink friendLink){
-        DBManager<FriendLink> dbManager=null;
+        DBManager dbManager=null;
         try {
-            dbManager=new DBManager<>();
+            dbManager=new DBManager();
             dbManager.supportTransaction(true);
             Link link=friendLink.getLink();
             String sql="insert into link_table(link,intro) values(?,?);";

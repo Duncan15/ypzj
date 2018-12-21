@@ -7,7 +7,7 @@ import java.util.List;
 import com.cwc.web.ypzj.model.mapper.RowMapper;
 
 
-public class DBManager<E> {
+public class DBManager {
 	private static ConnectionPool connPool=ConnectionPool.getInstance();
 	private Connection conn;
 	private PreparedStatement statement;
@@ -79,7 +79,7 @@ public class DBManager<E> {
 			System.err.println("can't close statement");
 		}
 	}
-	public List<E> findAll(RowMapper<E> rowMapper,String sql,Object... param)
+	public<E> List<E> findAll(RowMapper<E> rowMapper,String sql,Object... param)
 	{
 		ArrayList<E> ans=new ArrayList();
 		if(prepareQuery(sql,param)){
@@ -106,7 +106,7 @@ public class DBManager<E> {
 	/*
 	return null when can't get the target obj
 	 */
-	public E queryObject(RowMapper<E> rowMapper,String sql,Object... param)
+	public<E> E queryObject(RowMapper<E> rowMapper,String sql,Object... param)
 	{
 		if(prepareQuery(sql,param)){
 			try

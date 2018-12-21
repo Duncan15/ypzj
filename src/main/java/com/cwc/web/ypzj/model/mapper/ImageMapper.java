@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.cwc.web.ypzj.model.obj.Image;
 
-public class ImageMapper extends RowMapper{
+public class ImageMapper extends RowMapper<Image>{
 
 	@Override
 	public Image map(ResultSet resultSet) throws SQLException {

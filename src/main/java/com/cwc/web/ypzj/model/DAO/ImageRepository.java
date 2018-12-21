@@ -20,7 +20,7 @@ public class ImageRepository {
 	 */
 	public static Image findImageNameByMD5(byte[] MD5) {
 		String sql="select * from "+TABLE_NAME+" where md5=?;";
-		DBManager<Image> dbManager=null;
+		DBManager dbManager=null;
 		try{
 			dbManager=new DBManager();
 			return dbManager.queryObject(new ImageMapper(),sql,MD5);
@@ -34,7 +34,7 @@ public class ImageRepository {
 	public static Image createNewImage(String imageName,byte[] MD5) {
 		String sql="insert into "+TABLE_NAME+"("+Arg.image_name.toString()+","+Arg.md5.toString()+")"
 				+"values(?,?);";
-		DBManager<Image> dbManager=null;
+		DBManager dbManager=null;
 		int ans=0;
 		try{
 			dbManager=new DBManager();

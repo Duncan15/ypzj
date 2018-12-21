@@ -24,7 +24,7 @@ public class LinkRepository {
 		String sql="insert into "+TABLE_NAME+"("+Arg.intro.toString()+","+Arg.link.toString()+")"
 				+"values(?,?);";
 		String searchSql="select * from "+TABLE_NAME+" where "+Arg.id.toString()+"=?;";
-		DBManager<Link> dbManager=null;
+		DBManager dbManager=null;
 		try{
 			dbManager=new DBManager();
 			Long linkId=dbManager.insertAndGetKey(sql,intro,link);
